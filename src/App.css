@@ -1,0 +1,54 @@
+body{
+  width:100%;
+  height:100vh;
+}
+
+/* Home Page */
+
+/* Home page Container */
+
+
+.Home-page-container{
+  padding:2%;
+}
+.Home-Interest-Section-Container{
+  border-style: solid;
+  border-radius: 25px;
+  border: 2px 2px;
+  padding:25px
+}
+.Interest-container label {
+  padding-right:25px;
+}
+
+/* Interest Calculation section */
+.Interest-Section-container{
+  
+}
+.Interest-container{
+  display:flex;
+  justify-content: space-around;
+}
+#CI{
+  text-align: center;
+}
+.Interest-Result{
+  width:60vw;
+}
+.Interest-Result h1{
+  text-align: center;
+}
+.Interest-Result-Section{
+  
+  display:flex;
+  justify-content: space-around;
+}
+.btn-calc{
+  margin-right: 15px;
+}
+
+/* Interest Result Section */
+.Interest-Result-Container{
+  display:flex;
+  justify-content: space-around;
+}
