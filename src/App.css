@@ -52,3 +52,13 @@ body{
   display:flex;
   justify-content: space-around;
 }
+
+@media only screen and (max-width: 820px) {
+  .Interest-container{
+    display:block;
+    align-content:center;
+  }
+  .Interest-Result-Section{
+    display: block;
+  }
+}
