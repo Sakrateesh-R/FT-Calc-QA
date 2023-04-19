@@ -1,6 +1,6 @@
 
 import './App.css';
-import Curreny from './components/Currency';
+import Currency from "./components/Currency"
 import Home from "./components/Home.js";
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
@@ -12,6 +12,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/currency' element={<Currency/>} />
+        <Route path ='/profit/loss' element={<ProfitLoss/>} />
       </Routes>
     </Router>
   );
