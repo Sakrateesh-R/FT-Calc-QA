@@ -2,6 +2,7 @@ import { useState,useEffect } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import {ErrorBoundary} from "react-error-boundary";
+import ProfitLoss from "./calculations/ProfitLoss";
   
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -182,7 +183,8 @@ export default function Home(){
                 <label>
                     <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
                 </label>
-            </div>                
+            </div>           
+            <a href="/profit/loss" >Click here to calculate Profit or Loss</a>     
         </div> 
           
 
