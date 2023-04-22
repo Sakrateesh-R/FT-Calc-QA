@@ -1,43 +1,37 @@
 import { useState } from "react";
 
-
-
-
 export default function ProfitLoss(){
 
-    const [profitData, setProfitData] = useState({
-        SellingPrice : 0,
-        ActualPrice : 0
+    const [calculateProfit, setCalculateProfit] = useState({
+        SellingPrice:0,
+        ActualPrice:0
     })
-    const [calProfit, setCalProfit] = useState({})
-
-
-    // Handling change function in input tag 
     const handleChange = (e) =>{
         const{name,value} = e.target;
-        setProfitData({...profitData,[name]:value})
-        console.log(profitData)
+        setCalculateProfit({...calculateProfit,[name]:value})
+        
+        console.log(calculateProfit)
     }
-
-    //Calculating profit when user clicks on calculate button
     function CalculateProfit(){
-        let profitLoss = profitData.SellingPrice - profitData.ActualPrice;
 
-        console.log(profitLoss)
-        if (profitLoss>1){
-            const profitpercentage = profitLoss/profitData.ActualPrice*100;
+        var sum = calculateProfit.SellingPrice - calculateProfit.ActualPrice
+        
+        console.log(sum)
 
-            setCalProfit({
-                profitpercentage : profitpercentage,
-                profit : profitLoss
-            })
-            
+        if(sum>0){
+            const profit = sum
+            const profitPercentage = sum/calculateProfit.ActualPrice *100;
 
+            console.log(profit+ " "+ profitPercentage)
         }
-        console.log(calProfit)  
+        else    {
+            const loss = Math.abs(sum)
+            
+            const lossPercentage = loss * 100 / calculateProfit.ActualPrice
+            console.log()
+        }
 
     }
-
 
     return(
         <div className="Profit-container">
@@ -45,15 +39,15 @@ export default function ProfitLoss(){
                 <h1>Profit or Loss Calculator</h1>
                 <div className="Profit-input-section">
                     <label className="form-label">Enter the Selling Price</label>
-                    <input type="number" className="form-control" name="SellingPrice" value={profitData.SellingPrices} onChange={handleChange} id = "sellingPrice" />
+                    <input type="number" className="form-control" name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" />
                     <label className="form-label">Enter the Actual Price</label>
-                    <input type = "number" className="form-control" name="ActualPrice" value={profitData.ActualPrice} onChange={handleChange} id = "ActualPrice" /><br/>
+                    <input type = "number" className="form-control" name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange}  id = "ActualPrice" /><br/>
                     <button className="btn btn-primary" onClick={CalculateProfit}>FT Calculate</button>
                 </div>
             </div>
             <div className="Profit-Result-body">
-                <h2>Your Profit : {calProfit.profit}</h2>
-                <h2>Your Profit Percentage : {calProfit.profitpercentage}</h2>
+                <h2>Your Profit : </h2>
+                <h2>Your Profit Percentage : </h2>
             </div>
         </div>
     )
