@@ -3,15 +3,15 @@ import { useState,useEffect } from "react";
 
 
 
-export default function Curreny(){
+export default function Currency(){
 
     const [currencyData, setCurrencyData] = useState()
     const [objdata, setobjData] = useState([])
     useEffect(()=> {
         axios.get("https://api.freecurrencyapi.com/v1/latest?apikey=TLhj3ZiBxmYN28LvFsb2tdmYDGpz4mUImncal4zL")
                 .then( (res,req) => {
-                    setCurrencyData(res.data.data)
-                    //console.log(currencyData)
+                    setobjData(res.data.data)
+                    console.log(objdata)
                 } );
                 
     },[])
@@ -22,7 +22,7 @@ export default function Curreny(){
             <div className="Currency-body-container">
                 <h1>Convert Currency</h1>
                 <select value="Select a country">
-                  {objEntries.map( (key) => {
+                  {objdata.map( (key) => {
                     <options>{key[0]}</options>
                   })}
                 </select>
