@@ -54,8 +54,27 @@ body{
 }
 
 /* Page 2 Profit Loss Calculation design */
-.Profit-body{
+/* .Profit-body{
   margin : 5%;
+} */
+.Profit-container{
+  margin: 5vw;
+}
+
+/* Profit Rendering Section */
+.Profit-Result-body{
+  width:50%;
+}
+.Profit-Result-Section{
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  /* padding:25px; */
+  margin-top: 25px;
+
+}
+.Profit-input-section{
+  width:25vw;
 }
 
 
