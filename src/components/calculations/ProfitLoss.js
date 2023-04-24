@@ -1,11 +1,18 @@
 import { useState } from "react";
 
 export default function ProfitLoss(){
+    function formatAsPercentage(num) {
+        return new Intl.NumberFormat('default', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(num);
+      }
 
     const [calculateProfit, setCalculateProfit] = useState({
         SellingPrice:0,
         ActualPrice:0
     })
+    const [calProfit, setCalProfit] = useState({})
     const handleChange = (e) =>{
         const{name,value} = e.target;
         setCalculateProfit({...calculateProfit,[name]:value})
@@ -13,7 +20,7 @@ export default function ProfitLoss(){
         console.log(calculateProfit)
     }
     function CalculateProfit(){
-
+        setCalProfit({})
         var sum = calculateProfit.SellingPrice - calculateProfit.ActualPrice
         
         console.log(sum)
@@ -23,13 +30,22 @@ export default function ProfitLoss(){
             const profitPercentage = sum/calculateProfit.ActualPrice *100;
 
             console.log(profit+ " "+ profitPercentage)
+            setCalProfit({
+                profit:profit,
+                profitPercentage:formatAsPercentage(profitPercentage)
+            })
         }
         else    {
             const loss = Math.abs(sum)
             
             const lossPercentage = loss * 100 / calculateProfit.ActualPrice
-            console.log()
+            console.log(lossPercentage +" " + loss)
+            setCalProfit({
+                loss:loss,
+                lossPercentage:formatAsPercentage(lossPercentage)
+            })
         }
+        console.log(calProfit)
 
     }
 
@@ -39,16 +55,33 @@ export default function ProfitLoss(){
                 <h1>Profit or Loss Calculator</h1>
                 <div className="Profit-input-section">
                     <label className="form-label">Enter the Selling Price</label>
-                    <input type="number" className="form-control" name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" />
+                    <input type="number" className="form-control" name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value =calculateProfit.SellingPrice} />
                     <label className="form-label">Enter the Actual Price</label>
-                    <input type = "number" className="form-control" name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange}  id = "ActualPrice" /><br/>
+                    <input type = "number" className="form-control" name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange} onFocus={ (e) => e.target.value=''} onBlur={(e) => e.target.value = calculateProfit.ActualPrice} id = "ActualPrice" /><br/>
                     <button className="btn btn-primary" onClick={CalculateProfit}>FT Calculate</button>
                 </div>
             </div>
+            { calProfit.loss ? 
+            
             <div className="Profit-Result-body">
-                <h2>Your Profit : </h2>
-                <h2>Your Profit Percentage : </h2>
+                <div className="Profit-Result-Section">
+                    <h2>Your Loss : {calProfit.loss} </h2>
+                    <i className="fa-solid fa-arrow-down fa-bounce fa-2xl" style = {{color: "#ff1100"}}></i>
+                </div>
+                <h2>Your Loss Percentage : {calProfit.lossPercentage} %</h2>
             </div>
+            :
+            <div className="Profit-Result-body">
+            <div className="Profit-Result-Section">
+                <h2>Your Profit :{calProfit.profit} </h2> 
+                <i className="fa-solid fa-arrow-up fa-bounce fa-2xl" style = {{color: "#08f718"}}></i>
+                
+            </div>
+            
+            <h2>Your Profit Percentage : {calProfit.profitPercentage} %</h2>
+        </div>
+            }
+            
         </div>
     )
 }
