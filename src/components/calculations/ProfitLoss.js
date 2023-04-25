@@ -50,38 +50,40 @@ export default function ProfitLoss(){
     }
 
     return(
-        <div className="Profit-container">
-            <div className="Profit-body">
-                <h1>Profit or Loss Calculator</h1>
-                <div className="Profit-input-section">
-                    <label className="form-label">Enter the Selling Price</label>
-                    <input type="number" className="form-control" name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value =calculateProfit.SellingPrice} />
-                    <label className="form-label">Enter the Actual Price</label>
-                    <input type = "number" className="form-control" name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange} onFocus={ (e) => e.target.value=''} onBlur={(e) => e.target.value = calculateProfit.ActualPrice} id = "ActualPrice" /><br/>
-                    <button className="btn btn-primary" onClick={CalculateProfit}>FT Calculate</button>
+        <div className="body-position-container">
+            <div className="Profit-container">
+                <div className="Profit-body">
+                    <h1>Profit or Loss Calculator</h1>
+                    <div className="Profit-input-section">
+                        <label className="form-label">Enter the Selling Price</label>
+                        <input type="number" className="form-control" name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value =calculateProfit.SellingPrice} />
+                        <label className="form-label">Enter the Actual Price</label>
+                        <input type = "number" className="form-control" name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange} onFocus={ (e) => e.target.value=''} onBlur={(e) => e.target.value = calculateProfit.ActualPrice} id = "ActualPrice" /><br/>
+                        <button className="btn btn-primary" onClick={CalculateProfit}>FT Calculate</button>
+                    </div>
                 </div>
-            </div>
-            { calProfit.loss ? 
-            
-            <div className="Profit-Result-body">
+                { calProfit.loss ? 
+                
+                <div className="Profit-Result-body">
+                    <div className="Profit-Result-Section">
+                        <h2>Your Loss : {calProfit.loss} </h2>
+                        {calProfit.loss? <i className="fa-solid fa-arrow-down fa-bounce fa-2xl" style = {{color: "#ff1100"}}></i> : " " }
+                    </div>
+                    <h2>Your Loss Percentage : {calProfit.lossPercentage} %</h2>
+                </div>
+                :
+                <div className="Profit-Result-body">
                 <div className="Profit-Result-Section">
-                    <h2>Your Loss : {calProfit.loss} </h2>
-                    <i className="fa-solid fa-arrow-down fa-bounce fa-2xl" style = {{color: "#ff1100"}}></i>
+                    <h2>Your Profit :{calProfit.profit} </h2> 
+                    {calProfit.profit? <i className="fa-solid fa-arrow-up fa-bounce fa-2xl" style = {{color: "#08f718"}}></i> : " "}
+                    
                 </div>
-                <h2>Your Loss Percentage : {calProfit.lossPercentage} %</h2>
+                
+                <h2>Profit Percentage : {calProfit.profitPercentage} %</h2>
             </div>
-            :
-            <div className="Profit-Result-body">
-            <div className="Profit-Result-Section">
-                <h2>Your Profit :{calProfit.profit} </h2> 
-                <i className="fa-solid fa-arrow-up fa-bounce fa-2xl" style = {{color: "#08f718"}}></i>
+                }
                 
             </div>
-            
-            <h2>Your Profit Percentage : {calProfit.profitPercentage} %</h2>
-        </div>
-            }
-            
         </div>
     )
 }

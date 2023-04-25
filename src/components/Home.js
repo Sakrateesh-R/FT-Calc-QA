@@ -126,67 +126,68 @@ export default function Home(){
     
     //const demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-label-dlhhj';
     return(
-        <div className="Home-page-container">
-            <div className="Home-Interest-Section-Container">
+        <div className="body-position-container">
+            <div className="Home-page-container col-lg-12">
+                <div className="Home-Interest-Section-Container">
 
-            
-                <div className="Interest-Section-container">
                 
-                    <div className="Interest-container">
-                        
-                        <div className="Interest-container-section1">
-                        <h1 id="CI" className="h1">Calculate Interest</h1>
-                            <label className="form-label">Loan amount</label><br/>
-                            <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=''} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
-                            <label className="form-label">Interest rate</label><br/>
-                            <input type="number" className="form-control" id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
-                            <label className="form-label">Loan term (Years)</label><br/>
-                            <input type="number" className="form-control" id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
-                            <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Interest </button>
-                            <button className="btn btn-danger" onClick={Reset}> Reset </button>
+                    <div className="Interest-Section-container">
+                    
+                        <div className="Interest-container">
                             
-                        </div>
-                        <br/>
-                        <div className="Interest-Result">
-                            <h1>Your Loan Estimate</h1>
-                            <div className="Interest-Result-Section">
-                                <div className="Interest-Result-Section-left" >
-                                    <h2>Monthly Due</h2>
-                                    <h4>₹{!afterCalculate.monthlyPayment ? 0 : formatAsPercentage(afterCalculate.monthlyPayment)}</h4> 
-                                </div>
-                                <div className="Interest-Result-Section-right" >
-                                    <h2>Overview</h2>
-                                    <div className="Interest-Result-Overview">
-                                        <h4 className="form-label" >Loan Amount </h4>
-                                        <h4>₹ {!afterCalculate.LoanAmount? 0 : afterCalculate.LoanAmount}</h4>
-                                        <h4 className="form-label" >Total interest payments</h4>
-                                        <h4 >₹ {!afterCalculate.InterestAlone ? 0 : afterCalculate.InterestAlone}</h4>
-                                        <h4 className="form-label" >Total loan payments  </h4>
-                                        <h4>₹ {!afterCalculate.TotalSum ? 0 : afterCalculate.TotalSum}</h4>
-                                    </div>
-                                </div>
+                            <div className="Interest-container-section1">
+                            <h1 id="CI" className="h1">Calculate Interest</h1>
+                                <label className="form-label">Loan amount</label><br/>
+                                <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=''} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
+                                <label className="form-label">Interest rate</label><br/>
+                                <input type="number" className="form-control" id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
+                                <label className="form-label">Loan term (Years)</label><br/>
+                                <input type="number" className="form-control" id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
+                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Interest </button>
+                                <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 
                             </div>
-                        </div> <br/>
-                        { displayPie.value == false? console.log("not rendered") : 
-                            <div className="Interest-Pie-chart">
-                                <h1>Pie data section</h1>
-                            <Pie 
-                            data={data} 
-                            updateMode = "reset"
-                            />
-                            </div>
-                        } 
-                        
-                    </div> 
-                </div><br/>
-                <label>
-                    <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
-                </label>
-            </div>           
-            <a href="/profit/loss" >Click here to calculate Profit or Loss</a>     
-        </div> 
-          
+                            <br/>
+                            <div className="Interest-Result">
+                                <h1>Your Loan Estimate</h1>
+                                <div className="Interest-Result-Section">
+                                    <div className="Interest-Result-Section-left" >
+                                        <h2>Monthly Due</h2>
+                                        <h4>₹{!afterCalculate.monthlyPayment ? 0 : formatAsPercentage(afterCalculate.monthlyPayment)}</h4> 
+                                    </div>
+                                    <div className="Interest-Result-Section-right" >
+                                        <h2>Overview</h2>
+                                        <div className="Interest-Result-Overview">
+                                            <h4 className="form-label" >Loan Amount </h4>
+                                            <h4>₹ {!afterCalculate.LoanAmount? 0 : afterCalculate.LoanAmount}</h4>
+                                            <h4 className="form-label" >Total interest payments</h4>
+                                            <h4 >₹ {!afterCalculate.InterestAlone ? 0 : afterCalculate.InterestAlone}</h4>
+                                            <h4 className="form-label" >Total loan payments  </h4>
+                                            <h4>₹ {!afterCalculate.TotalSum ? 0 : afterCalculate.TotalSum}</h4>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div> <br/>
+                            { displayPie.value == false? console.log("not rendered") : 
+                                <div className="Interest-Pie-chart">
+                                    <h1>Pie data section</h1>
+                                <Pie 
+                                data={data} 
+                                updateMode = "reset"
+                                />
+                                </div>
+                            } 
+                            
+                        </div> 
+                    </div><br/>
+                    <label>
+                        <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
+                    </label>
+                </div>           
+                <a href="/profit/loss" >Click here to calculate Profit or Loss</a>     
+            </div> 
+        </div>      
 
     )
 }
