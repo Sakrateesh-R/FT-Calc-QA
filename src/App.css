@@ -1,8 +1,37 @@
 body{
   width:100%;
   height:100vh;
+  position:relative;
 }
 
+/* Navigation bar */
+.navbar{
+  background-color: orangered;
+  font-weight: bolder;
+  height:7vh;
+}
+.navbar-left{
+  padding:10px;
+  position: absolute;
+  left:0;
+  height:100vh;
+  width: 17vw;
+  background:black;
+  color:white;
+}
+.navbar-left .nav-link{
+  color:white;
+  font-weight: bolder;
+}
+.navbar-left .nav-link:hover{
+  color:orangered;
+}
+.body-position-container{
+  position: absolute;
+  left:17vw;
+  z-index: 20;
+  
+}
 /* Home Page */
 
 /* Home page Container */
@@ -63,7 +92,7 @@ body{
 
 /* Profit Rendering Section */
 .Profit-Result-body{
-  width:50%;
+  width:75vw;
 }
 .Profit-Result-Section{
   display: flex;
@@ -74,7 +103,7 @@ body{
 
 }
 .Profit-input-section{
-  width:25vw;
+  width:30vw;
 }
 
 
@@ -85,5 +114,22 @@ body{
   }
   .Interest-Result-Section{
     display: block;
+  }
+  .body-position-container{
+    position: absolute;
+    left:0;
+  }
+  /* Profit or Loss */
+  .Profit-Result-body{
+    width:100vw;
+  }
+  .Profit-input-section{
+    width:75vw;
+  }
+}
+@media only screen and (max-width: 1200px){
+  .body-position-container{
+    position: absolute;
+    left:0;
   }
 }
