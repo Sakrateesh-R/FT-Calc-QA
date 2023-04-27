@@ -22,6 +22,12 @@ export default function Home(){
     const handleChange = (e) =>{
         const{name,value} = e.target;
         setCalculateInterest({...calculateInterest,[name]:value})
+        // if(name == calculateInterest.noOfYear){
+        //     calculateInterest
+        // }
+        // else{
+        //     console.log("else")
+        // }
         
         console.log(calculateInterest)
     }
@@ -129,14 +135,12 @@ export default function Home(){
         <div className="body-position-container">
             <div className="Home-page-container col-lg-12">
                 <div className="Home-Interest-Section-Container">
-
-                
                     <div className="Interest-Section-container">
                     
                         <div className="Interest-container">
                             
                             <div className="Interest-container-section1">
-                            <h1 id="CI" className="h1">Calculate Interest</h1>
+                                <h1 id="CI" className="h1">Calculate Interest</h1>
                                 <label className="form-label">Loan amount</label><br/>
                                 <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=''} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
                                 <label className="form-label">Interest rate</label><br/>
@@ -148,6 +152,11 @@ export default function Home(){
                                 
                             </div>
                             <br/>
+                            
+                            
+                        </div> 
+                        { displayPie.value == false? console.log("not rendered") :
+                        <div className="Dynamic-interest-section">
                             <div className="Interest-Result">
                                 <h1>Your Loan Estimate</h1>
                                 <div className="Interest-Result-Section">
@@ -168,24 +177,26 @@ export default function Home(){
                                     </div>
                                     
                                 </div>
-                            </div> <br/>
-                            { displayPie.value == false? console.log("not rendered") : 
+                                </div> <br/>
+                                
                                 <div className="Interest-Pie-chart">
                                     <h1>Pie data section</h1>
-                                <Pie 
-                                data={data} 
-                                updateMode = "reset"
-                                />
+                                    <Pie 
+                                    data={data} 
+                                    updateMode = "reset"
+                                    />
                                 </div>
-                            } 
                             
-                        </div> 
-                    </div><br/>
+                            </div>
+                        }
+                        </div>
+                        
+                        <br/>
                     <label>
                         <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
                     </label>
                 </div>           
-                <a href="/profit/loss" >Click here to calculate Profit or Loss</a>     
+                    
             </div> 
         </div>      
 

@@ -5,6 +5,7 @@ import Home from "./components/Home.js";
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import ProfitLoss from './components/calculations/ProfitLoss';
+import Deprecation from './components/calculations/Depreciation';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/currency' element={<Currency/>} />
         <Route path ='/profit/loss' element={<ProfitLoss/>} />
+        <Route path='/deprecation' element={<Deprecation/>} />
       </Routes>
     </Router>
   );

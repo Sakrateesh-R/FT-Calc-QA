@@ -26,7 +26,10 @@ export default function Navbar(){
                     <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Interest" aria-current="page" href="/"> Calculate Interest </a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/profit/loss"> Calculate Profit & Loss</a>
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Profit/Loss" aria-current="page" href="/profit/loss"> Calculate Profit & Loss</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/deprecation">Calculate Deprecation</a>
                     </li>
                 </ul>
         </div>
