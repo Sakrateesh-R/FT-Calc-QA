@@ -2,13 +2,15 @@ body{
   width:100%;
   height:100vh;
   position:relative;
+  background-color: aliceblue;
 }
 
 /* Navigation bar */
 .navbar{
   background-color: orangered;
   font-weight: bolder;
-  height:7vh;
+  /* height:7vh; */
+  padding: 20px 0;
 }
 .navbar-left{
   padding:10px;
@@ -16,7 +18,7 @@ body{
   left:0;
   height:100vh;
   width: 17vw;
-  background:black;
+  background:#063970  ;
   color:white;
 }
 .navbar-left .nav-link{
@@ -44,7 +46,10 @@ body{
   border-style: solid;
   border-radius: 25px;
   border: 2px 2px;
-  padding:25px
+  border-color: azure;
+  box-shadow: grey 2px 2px 2px;
+  padding:25px;
+  width:75vw;
 }
 .Interest-container label {
   padding-right:25px;
@@ -56,7 +61,8 @@ body{
 }
 .Interest-container{
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
+  
 }
 #CI{
   text-align: center;
@@ -81,7 +87,23 @@ body{
   display:flex;
   justify-content: space-around;
 }
-
+.Dynamic-interest-section{
+  padding:25px;
+  margin-top: 15px;
+  display: flex;
+  width:70vw;
+  justify-content:space-around;
+  border-style: solid;
+  border-radius: 25px;
+  border: 2px 2px;
+  border-color: azure;
+  box-shadow: grey 2px 2px 2px;
+  
+}
+.Interest-Pie-chart{
+  width:40%;
+  height:50%;
+}
 /* Page 2 Profit Loss Calculation design */
 /* .Profit-body{
   margin : 5%;
