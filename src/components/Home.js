@@ -28,8 +28,16 @@ export default function Home(){
         // else{
         //     console.log("else")
         // }
-        
-        console.log(calculateInterest)
+        // if(name == calculateInterest.totalAmount){
+        //     setCalculateInterest({totalAmount : [value]})
+        // }
+        // else if(name == calculateInterest.rateOfInterest){
+        //     calculateInterest.rateOfInterest += value;
+        // }
+        // else{
+        //     calculateInterest.noOfYear = value;
+        // }
+        // console.log(calculateInterest)
     }
    
 
