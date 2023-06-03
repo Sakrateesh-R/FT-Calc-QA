@@ -31,10 +31,8 @@ export default function Deprecation(){
 
     function Calculate(){
         //const loopnum = depValue.LOA;
-        if(depValue.CTA == 0 || depValue.LOA == 0|| depValue.SRValue){
-            alert("Please Enter all the fields and click on FT Calc Depreciation")
-        }else{
-
+        if(!depValue.CTA == 0 || !depValue.LOA == 0|| !depValue.SRValue){
+            
             var Initial_Amount = depValue.CTA;
 
             var amountOfDep = Initial_Amount * depValue.SRValue / 100
@@ -51,11 +49,11 @@ export default function Deprecation(){
                 AmountOfDep : amountOfDep
             })
             //console.log("Pie Date" +" "+ piedata)
-            setData({labels: ['Asset Rate at buying','Deprecation Value'],
+            setData({labels: ['Asset Original Value','Asset Selling Price'],
             datasets: [
             {
                 label: "FT Calc",
-                data: [Initial_Amount,deprecation],
+                data: [Initial_Amount,amountOfDep],
                 backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -67,50 +65,51 @@ export default function Deprecation(){
                 borderWidth: 1,
             }
             ],})
-        }
 
-    }
-    //     for(let dObject=0; dObject<=loopnum; dObject++){
-    //         console.log("in loop");
-        
-    //         console.log("in condition")
-    //         let depAmount = Initial_Amount - 100;
-    //         var swapAmount = depAmount;
-    //         obj = {[dObject]:swapAmount};
-    //         // console.log(obj);
-    //         Initial_Amount = swapAmount;
-    //         setDeprecationAmount({...deprecationAmount,dObject:Initial_Amount});
-    //         setCalculateRender({
-    //             calculateRender: true
-    //         })
-    //         setPieData({
-    //             OriginalAmount:Initial_Amount,
-    //             DeprecationAmount:deprecationAmount.dObject
-    //         })
-    //         console.log("Pie Date" +" "+ piedata)
-    //         setData({labels: ['Asset Rate at buying','Deprecation Value'],
-    //         datasets: [
-    //         {
-    //             label: "FT Calc",
-    //             data: [Initial_Amount,swapAmount],
-    //             backgroundColor: [
-    //             'rgba(255, 99, 132, 0.2)',
-    //             'rgba(54, 162, 235, 0.2)',
-    //             ],
-    //             borderColor: [
-    //             'rgba(255, 99, 132, 1)',
-    //             'rgba(54, 162, 235, 1)'
-    //             ],
-    //             borderWidth: 1,
-    //         }
-    //         ],})
-    //         console.log(Initial_Amount)
+            // for(let dObject=0; dObject<=loopnum; dObject++){
+            //     console.log("in loop");
             
-    //     }
-    //     console.log(deprecationAmount)
-    //     console.log(obj);
-    // }
-    
+            //     console.log("in condition")
+            //     let depAmount = Initial_Amount - 100;
+            //     var swapAmount = depAmount;
+            //     obj = {[dObject]:swapAmount};
+            //     // console.log(obj);
+            //     Initial_Amount = swapAmount;
+            //     setDeprecationAmount({...deprecationAmount,dObject:Initial_Amount});
+            //     setCalculateRender({
+            //         calculateRender: true
+            //     })
+            //     setPieData({
+            //         OriginalAmount:Initial_Amount,
+            //         DeprecationAmount:deprecationAmount.dObject
+            //     })
+            //     console.log("Pie Date" +" "+ piedata)
+            //     setData({labels: ['Asset Rate at buying','Deprecation Value'],
+            //     datasets: [
+            //     {
+            //         label: "FT Calc",
+            //         data: [Initial_Amount,swapAmount],
+            //         backgroundColor: [
+            //         'rgba(255, 99, 132, 0.2)',
+            //         'rgba(54, 162, 235, 0.2)',
+            //         ],
+            //         borderColor: [
+            //         'rgba(255, 99, 132, 1)',
+            //         'rgba(54, 162, 235, 1)'
+            //         ],
+            //         borderWidth: 1,
+            //     }
+            //     ],})
+            //     console.log(Initial_Amount)
+                
+            // }
+            // console.log(deprecationAmount)
+            // console.log(obj)
+        }else{
+            alert("Please Enter all the fields and click on FT Calc Depreciation")
+        }
+            
+    }
     function Reset(){
         setDepValue({});
         setCalculateRender({
