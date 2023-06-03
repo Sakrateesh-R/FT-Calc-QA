@@ -45,8 +45,8 @@ export default function Deprecation(){
             })
             setPieData({
                 OriginalAmount:Initial_Amount,
-                DepAmount:depAmount,
-                AmountOfDep : amountOfDep
+                DepAmount:Math.round(depAmount),
+                AmountOfDep : Math.round(amountOfDep)
             })
             //console.log("Pie Date" +" "+ piedata)
             setData({labels: ['Asset Original Value','Asset Selling Price'],
