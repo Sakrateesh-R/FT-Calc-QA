@@ -142,7 +142,7 @@ export default function Deprecation(){
                 //     </div>
                 // </div> 
                 :
-                console.log("not calculated")
+                console.log("not calculated till")
             }
             
         </div>
