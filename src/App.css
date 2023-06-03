@@ -128,7 +128,32 @@ body{
   width:30vw;
 }
 
+/* END OF PROFIT/LOSS CONTAINER OR MODULE */
 
+/* BEGINNING OF DEPRECIATION MODULE */
+.deprecation-container{
+  display: flex;
+}
+.Depreciation-calculation-section-body{
+  display: flex;
+  justify-content: center;
+}
+
+.Depreciation-Calculator-body{
+  padding:25px;
+  margin-top: 15px;
+  display: flex;
+  width:75vw;
+  justify-content:space-around;
+  border-style: solid;
+  border-radius: 25px;
+  border: 2px 2px;
+  border-color: azure;
+  box-shadow: grey 2px 2px 2px;
+}
+/* END OF DEPRECIATION MODULE */
+
+/* Mobile resolution design */
 @media only screen and (max-width: 820px) {
   body{
     position:static;

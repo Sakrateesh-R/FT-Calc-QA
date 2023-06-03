@@ -27,6 +27,7 @@ export default function Deprecation(){
     const [piedata, setPieData] = useState()
 
     //var obj = new Object();
+    //var obj = new Object();
 
     function Calculate(){
         //const loopnum = depValue.LOA;
@@ -54,7 +55,7 @@ export default function Deprecation(){
             datasets: [
             {
                 label: "FT Calc",
-                data: [Initial_Amount,swapAmount],
+                data: [Initial_Amount,deprecation],
                 backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
