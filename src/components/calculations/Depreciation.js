@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import { wait } from "@testing-library/user-event/dist/utils";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -22,33 +23,33 @@ export default function Deprecation(){
         calculateRender:false
     })
     console.log(depValue)
-    const [deprecationAmount,setDeprecationAmount] = useState({});
+    //const [deprecationAmount,setDeprecationAmount] = useState({});
     const [piedata, setPieData] = useState()
 
-    var obj = new Object();
+    //var obj = new Object();
 
     function Calculate(){
-        const loopnum = depValue.LOA;
-        var Initial_Amount = depValue.CTA;
+        //const loopnum = depValue.LOA;
+        if(depValue.CTA == 0 || depValue.LOA == 0|| depValue.SRValue){
+            alert("Please Enter all the fields and click on FT Calc Depreciation")
+        }else{
 
-        for(let dObject=0; dObject<=loopnum; dObject++){
-            console.log("in loop");
-        
-            console.log("in condition")
-            let depAmount = Initial_Amount - 100;
+            var Initial_Amount = depValue.CTA;
+
+            var amountOfDep = Initial_Amount * depValue.SRValue / 100
+            console.log(amountOfDep)
+
+            var depAmount =  (Initial_Amount - amountOfDep) / depValue.LOA
             var swapAmount = depAmount;
-            obj = {[dObject]:swapAmount};
-            // console.log(obj);
-            Initial_Amount = swapAmount;
-            setDeprecationAmount({...deprecationAmount,dObject:Initial_Amount});
             setCalculateRender({
                 calculateRender: true
             })
             setPieData({
                 OriginalAmount:Initial_Amount,
-                DeprecationAmount:deprecationAmount.dObject
+                DepAmount:depAmount,
+                AmountOfDep : amountOfDep
             })
-            console.log("Pie Date" +" "+ piedata)
+            //console.log("Pie Date" +" "+ piedata)
             setData({labels: ['Asset Rate at buying','Deprecation Value'],
             datasets: [
             {
@@ -65,86 +66,127 @@ export default function Deprecation(){
                 borderWidth: 1,
             }
             ],})
-            console.log(Initial_Amount)
-            
         }
-        console.log(deprecationAmount)
-        console.log(obj);
+
     }
+    //     for(let dObject=0; dObject<=loopnum; dObject++){
+    //         console.log("in loop");
+        
+    //         console.log("in condition")
+    //         let depAmount = Initial_Amount - 100;
+    //         var swapAmount = depAmount;
+    //         obj = {[dObject]:swapAmount};
+    //         // console.log(obj);
+    //         Initial_Amount = swapAmount;
+    //         setDeprecationAmount({...deprecationAmount,dObject:Initial_Amount});
+    //         setCalculateRender({
+    //             calculateRender: true
+    //         })
+    //         setPieData({
+    //             OriginalAmount:Initial_Amount,
+    //             DeprecationAmount:deprecationAmount.dObject
+    //         })
+    //         console.log("Pie Date" +" "+ piedata)
+    //         setData({labels: ['Asset Rate at buying','Deprecation Value'],
+    //         datasets: [
+    //         {
+    //             label: "FT Calc",
+    //             data: [Initial_Amount,swapAmount],
+    //             backgroundColor: [
+    //             'rgba(255, 99, 132, 0.2)',
+    //             'rgba(54, 162, 235, 0.2)',
+    //             ],
+    //             borderColor: [
+    //             'rgba(255, 99, 132, 1)',
+    //             'rgba(54, 162, 235, 1)'
+    //             ],
+    //             borderWidth: 1,
+    //         }
+    //         ],})
+    //         console.log(Initial_Amount)
+            
+    //     }
+    //     console.log(deprecationAmount)
+    //     console.log(obj);
+    // }
     
     function Reset(){
         setDepValue({});
         setCalculateRender({
             calculateRender:false
         })
+        wait(500)
+        document.location.reload()
     }
 
     return(
-        <div className="deprecation-container body-position-container">
-            <h1 style={{textAlign:'center'}}>Calculate Deprecation</h1>
-            <div className="Depreciation-container-body container">
-                <div className="Depreciation-calculate-section">
-                    <div className="Depreciation-input-section">
-                        <label className="form-label">Cost of the Asset</label><br/>
-                        <input type="number" className="form-control" name="CTA" onChange={handleChange}/><br/>
-                        <label className="form-label">Salvage/Residual value (in percentage %)</label><br/>
-                        <input type="number" className="form-control" name="SRValue" onChange={handleChange}/><br/>
-                        {/* <label className="form-label">Method of Depreciation</label><br/>
-                        <input type="number" className="form-control"/><br/> */}
-                        <label className="form-label">Life of Asset</label><br/>
-                        <input type="range" className="form-range" name="LOA" data-bs-toggle="tooltip" data-bs-placement="top" title={`${depValue.LOA} years`} onChange={handleChange} min={0} max={100}/>
-                    </div>
-                </div>
-                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Interest </button>
-                <button className="btn btn-danger" onClick={Reset}> Reset </button>
-            </div>
-            {
-                deprecationAmount.dObject? 
-                <div>
-                    <div className="Interest-Result-Section-right" >
-                        <h2>Your Deprecation Value</h2>
-                        <div className="Interest-Result-Overview">
-                            <h4 className="form-label" >Asset Deprecation Amount : </h4>
-                            <h4>₹ {!deprecationAmount.dObject? 0 : deprecationAmount.dObject}</h4>
-                            <h4 className="form-label" >Asset Original Amount : </h4>
-                            <h4 >₹ {!depValue.CTA ? 0 : depValue.CTA}</h4>
+        <div className="body-position-container">
+            <div className="Home-page-container col-lg-12">
+                <div className="Home-Interest-Section-Container">
+                    <div className="Interest-Section-container">
+                    
+                        <div className="Interest-container">
+                            
+                            <div className="Interest-container-section1">
+                                <h1 id="CI" className="h1">Depreciation Calculator</h1>
+                                <label className="form-label">Asset Buying Price</label><br/>
+                                <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "CTA" value={depValue.CTA} onFocus={ (e) => e.target.value=''} onChange={handleChange} onBlur ={(e) => e.target.value = depValue.CTA} /> <br/>
+                                <label className="form-label">Asset Salvage in % </label><br/>
+                                <input type="number" className="form-control" id = "rateOfInterest" name = "SRValue" value={depValue.SRValue} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = depValue.SRValue} onChange={handleChange} /> <br/>
+                                <label className="form-label">Asset Useful Years</label><br/>
+                                <input type="number" className="form-control" id = "noOfYear" name = "LOA" value={depValue.LOA} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = depValue.LOA} onChange={handleChange} /> <br/><br/>
+                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Deprecation </button>
+                                <button className="btn btn-danger" onClick={Reset}> Reset </button>
+                                
+                            </div>
+                            <br/>
+                            
+                            
+                        </div> 
+                        { !calculateRender.calculateRender ? console.log("not rendered") :
+                        <div className="Dynamic-interest-section">
+                            <div className="Interest-Result">
+                                <h1>Your Deprecation Estimate</h1>
+                                <div className="Interest-Result-Section">
+                                    <div className="Interest-Result-Section-left" >
+                                        <h2>Asset Selling Price</h2>
+                                        <h4>₹{!piedata.DepAmount ? 0 : piedata.DepAmount}</h4> 
+                                    </div>
+                                    <div className="Interest-Result-Section-right" >
+                                        <h2>Depreciation Overview</h2>
+                                        <div className="Interest-Result-Overview">
+                                            <h4 className="form-label" >Asset Original Value </h4>
+                                            <h4>₹ {!piedata.OriginalAmount? 0 : piedata.OriginalAmount}</h4>
+                                            <h4 className="form-label" > Assest Selling Price</h4>
+                                            <h4 >₹ {!piedata.AmountOfDep ? 0 : piedata.AmountOfDep}</h4>
+                                            <h4 className="form-label" >Asset Rate of Deprecation Per Year </h4>
+                                            <h4>₹ {!piedata.DepAmount ? 0 : piedata.DepAmount}</h4>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                </div> <br/>
+                                
+                                <div className="Interest-Pie-chart">
+                                    <h1>Pie data section</h1>
+                                    <Pie 
+                                    data={data} 
+                                    updateMode = "reset"
+                                    />
+                                </div>
+                            
+                            </div>
+                        }
                         </div>
-                        {/* <div className="Interest-Pie-chart">
-                            <h1>Pie data section</h1>
-                            <Pie 
-                            data={data} 
-                            updateMode = "reset"
-                            />
-                        </div> */}
-                    </div>
-                    <div className="Interest-Pie-chart">
-                    <h1>Pie data section</h1>
-                    <Pie 
-                    data={data} 
-                    updateMode = "reset"
-                    />
-                    </div>
-                </div>
-                // <div className="Depreciation-calculation">
-                //     <div className="Depreciation-section-value">
-                //         <h2></h2>
-                //         <div className="Depreciation-calculate-section">
-                //             <h3> {}</h3>
-                //             <h3> {depValue.CTA}</h3>
-                //         </div>
-                //         <div className="Interest-Pie-chart">
-                //             <h1>Pie data section</h1>
-                //             <Pie 
-                //             data={data} 
-                //             updateMode = "reset"
-                //             />
-                //         </div>
-                //     </div>
-                // </div> 
-                :
-                console.log("not calculated till")
-            }
-            
-        </div>
+                        
+                        <br/>
+                    <label>
+                        <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
+                    </label>
+                </div>           
+                    
+            </div> 
+        </div>      
+
     )
 }
