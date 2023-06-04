@@ -15,6 +15,9 @@ export default function Navbar(){
                         <li className="nav-item">
                         <a className="nav-link" href="/profit/loss"> Calculate Profit & Loss</a>
                         </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="/deprecation"> Calculate Depreciation</a>
+                        </li>
                     </ul>
                 </div>
             </div>

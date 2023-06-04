@@ -193,19 +193,15 @@ body{
 
 .version-container{
   color:whitesmoke;
-  position: fixed;
-  left: 90%;
-  bottom: 0;
   width: 100%;
+  align-items: end;
 }
 
 /* END OF FOOTER SECTION */
 
 /* Mobile resolution design */
 @media only screen and (max-width: 820px) {
-  body{
-    position:static;
-  }
+  
   .Interest-container{
     display:block;
     align-content:center;
@@ -225,8 +221,7 @@ body{
     width: inherit;
   }
   .body-position-container{
-    position: absolute;
-    left:0;
+    margin-left: 0;
   }
   /* Profit or Loss */
   .Profit-Result-body{
@@ -235,12 +230,35 @@ body{
   .Profit-input-section{
     width:75vw;
   }
+  .navbar{
+    display: flex;
+    background-color: orangered;
+    font-weight: bolder;
+    /* height:7vh; */
+    padding: 20px 0;
+  }
+  /* Begining of the footer mobile responsive section */
+  .Footer-Container{
+    margin-top: 25vh;
+    margin-left: 0;
+    background-color: #063970;
+    border-left: 2px solid white;
+  }
+  .footer-flex-container{
+    background-color: black;
+    justify-content: space-between;
+    padding: 0 5%;
+    
+  }
+  .version-container{
+    color:whitesmoke;
+    display: block;
+  }
   
 }
 @media only screen and (max-width: 1200px){
   .body-position-container{
-    position: absolute;
-    left:0;
+    
   }
   
 }
