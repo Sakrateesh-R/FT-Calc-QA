@@ -1,12 +1,13 @@
 body{
-  width:100%;
+  /* width:100%;
   height:100vh;
   position:relative;
-  background-color: aliceblue;
+  background-color: aliceblue; */
 }
 
 /* Navigation bar */
 .navbar{
+  display: none;
   background-color: orangered;
   font-weight: bolder;
   /* height:7vh; */
@@ -14,7 +15,7 @@ body{
 }
 .navbar-left{
   padding:10px;
-  position: absolute;
+  position: fixed;
   left:0;
   height:100vh;
   width: 17vw;
@@ -29,9 +30,10 @@ body{
   color:orangered;
 }
 .body-position-container{
-  position: absolute;
+  /* position: absolute;
   left:17vw;
-  z-index: 20;
+  z-index: 20; */
+  margin-left: 20vw;
   
 }
 /* Home Page */
@@ -152,6 +154,52 @@ body{
   box-shadow: grey 2px 2px 2px;
 }
 /* END OF DEPRECIATION MODULE */
+
+/* BEGINNING Of Footer Section */
+.body-footer-container{
+  /* position: fixed;
+  top:90vh;
+  width:100vw;
+  background-color: blue; */
+  background-color: #063970;
+  
+
+}
+.Footer-Container{
+  margin-top: 5%;
+  margin-left: 20vw;
+  background-color: #063970;
+  border-left: 2px solid white;
+}
+.footer-flex-container{
+  background-color: black;
+  display:flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  margin-left: 20vw;
+}
+
+.flink:hover{
+  transform:scale(1.1,1.1);
+  transition: transform 0.2s ease-in;
+}
+
+.Footer-Container{
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%; */
+}
+
+.version-container{
+  color:whitesmoke;
+  position: fixed;
+  left: 90%;
+  bottom: 0;
+  width: 100%;
+}
+
+/* END OF FOOTER SECTION */
 
 /* Mobile resolution design */
 @media only screen and (max-width: 820px) {

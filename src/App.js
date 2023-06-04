@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import ProfitLoss from './components/calculations/ProfitLoss';
 import Deprecation from './components/calculations/Depreciation';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path ='/profit/loss' element={<ProfitLoss/>} />
         <Route path='/deprecation' element={<Deprecation/>} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }
