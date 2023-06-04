@@ -31,7 +31,7 @@ export default function Deprecation(){
 
     function Calculate(){
         //const loopnum = depValue.LOA;
-        if(!depValue.CTA == 0 || !depValue.LOA == 0|| !depValue.SRValue){
+        if(!depValue.CTA <= 0 || !depValue.LOA <= 0 || !depValue.SRValue <= 0){
             
             var Initial_Amount = depValue.CTA;
 
