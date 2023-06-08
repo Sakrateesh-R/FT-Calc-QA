@@ -3,8 +3,10 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import {ErrorBoundary} from "react-error-boundary";
 import ProfitLoss from "./calculations/ProfitLoss";
+import axios from "axios";
   
 ChartJS.register(ArcElement, Tooltip, Legend);
+var apiURL = "http://localhost:5000/";
 
 export default function Home(){
     const [data, setData] = useState({});
@@ -110,6 +112,15 @@ export default function Home(){
             console.log(pieData + "Pie Data")  
             setDisplayPie({value:true})
         }
+        const DBdata = {
+            CalculatedData:'Calculated Interest'
+        }
+        const AddData = (e) => {
+             axios.post(`${apiURL}addData`,DBdata)
+                .then( res => console.log(res))
+                .catch(err => err)
+            }
+        AddData()
    
     }
     function Reset() {

@@ -2,9 +2,10 @@ import { useState } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { wait } from "@testing-library/user-event/dist/utils";
+import axios from "axios";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
+var apiURL = "http://localhost:5000/";
 export default function Deprecation(){
 
     const [data, setData] = useState({});
@@ -105,9 +106,20 @@ export default function Deprecation(){
             // }
             // console.log(deprecationAmount)
             // console.log(obj)
+            // To get Data from Mongo DB //console.log(axios.get(apiURL).then(data => console.log(data.data)).catch(err => err));
+            const DBdata = {
+                CalculatedData:'Calculated Depreciation'
+            }
+            const AddData = (e) => {
+                 axios.post(`${apiURL}addData`,DBdata)
+                    .then( res => console.log(res))
+                    .catch(err => err)
+                }
+            AddData()
         }else{
             alert("Please Enter all the fields and click on FT Calc Depreciation")
         }
+        
             
     }
     function Reset(){

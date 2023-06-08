@@ -1,4 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
+
+var apiURL = "http://localhost:5000/";
 
 export default function ProfitLoss(){
     function formatAsPercentage(num) {
@@ -46,6 +49,15 @@ export default function ProfitLoss(){
             })
         }
         console.log(calProfit)
+        const DBdata = {
+            CalculatedData:'Calculated Profit/Loss'
+        }
+        const AddData = (e) => {
+             axios.post(`${apiURL}addData`,DBdata)
+                .then( res => console.log(res))
+                .catch(err => err)
+            }
+        AddData()
 
     }
 
