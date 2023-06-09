@@ -19,7 +19,7 @@ export const allTask = (req,res) => {
     UserBasicDetails.find()
         .then( (userData) => res.status(200).json({userData}))
         .catch( (err) => res.status(400).json(`Error occurs while getting post ${err}`))
-    //res.send("Getting all Post");
+    
 };
 export const updateData = (req,res) => {
     
