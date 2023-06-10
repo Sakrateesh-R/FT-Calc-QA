@@ -5,7 +5,7 @@ import { wait } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-var apiURL = "http://localhost:5000/";
+var apiURL = "https://ft-calc-backend.onrender.com/"
 export default function Deprecation(){
 
     const [data, setData] = useState({});

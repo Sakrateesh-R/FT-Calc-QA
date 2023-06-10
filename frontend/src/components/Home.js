@@ -6,7 +6,7 @@ import ProfitLoss from "./calculations/ProfitLoss";
 import axios from "axios";
   
 ChartJS.register(ArcElement, Tooltip, Legend);
-var apiURL = "http://localhost:5000/";
+var apiURL = "https://ft-calc-backend.onrender.com/";
 
 export default function Home(){
     const [data, setData] = useState({});
