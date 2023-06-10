@@ -17,8 +17,8 @@
   ],
   "author": "Sakrateesh R",
   "license": "ISC",
-  "bin" : {
-    "execute" : "index.js"
+  "bin": {
+    "execute": "index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
