@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-var apiURL = "http://localhost:5000/";
+var apiURL = "https://ft-calc-backend.onrender.com/";
 
 export default function ProfitLoss(){
     function formatAsPercentage(num) {
