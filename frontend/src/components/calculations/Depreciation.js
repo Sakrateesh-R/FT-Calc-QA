@@ -115,7 +115,7 @@ export default function Deprecation(){
                     .then( res => console.log(res))
                     .catch(err => err)
                 }
-            AddData()
+            //AddData()
         }else{
             alert("Please Enter all the fields and click on FT Calc Depreciation")
         }
@@ -142,11 +142,11 @@ export default function Deprecation(){
                             <div className="Interest-container-section1">
                                 <h1 id="CI" className="h1">Depreciation Calculator</h1>
                                 <label className="form-label">Asset Buying Price</label><br/>
-                                <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "CTA" value={depValue.CTA} onFocus={ (e) => e.target.value=''} onChange={handleChange} onBlur ={(e) => e.target.value = depValue.CTA} /> <br/>
+                                <input type="number" pattern="[0-9]" className="form-control" maxLength={10} id = "totalAmount" name = "CTA" value={depValue.CTA} onFocus={ (e) => e.target.value= depValue.CTA == 0 ? '':depValue.CTA} onChange={handleChange} onBlur ={(e) => e.target.value = depValue.CTA} /> <br/>
                                 <label className="form-label">Asset Salvage in % </label><br/>
-                                <input type="number" className="form-control" id = "rateOfInterest" name = "SRValue" value={depValue.SRValue} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = depValue.SRValue} onChange={handleChange} /> <br/>
+                                <input type="number" className="form-control" maxLength={10} id = "rateOfInterest" name = "SRValue" value={depValue.SRValue} onFocus={ (e) => e.target.value=depValue.SRValue == 0 ? '':depValue.SRValue} onBlur ={(e) => e.target.value = depValue.SRValue} onChange={handleChange} /> <br/>
                                 <label className="form-label">Asset Useful Years</label><br/>
-                                <input type="number" className="form-control" id = "noOfYear" name = "LOA" value={depValue.LOA} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = depValue.LOA} onChange={handleChange} /> <br/><br/>
+                                <input type="number" className="form-control" maxLength={10} id = "noOfYear" name = "LOA" value={depValue.LOA} onFocus={ (e) => e.target.value=depValue.LOA == 0 ? '':depValue.LOA} onBlur ={(e) => e.target.value = depValue.LOA} onChange={handleChange} /> <br/><br/>
                                 <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Deprecation </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 

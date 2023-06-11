@@ -57,7 +57,7 @@ export default function ProfitLoss(){
                 .then( res => console.log(res))
                 .catch(err => err)
             }
-        AddData()
+        //AddData()
 
     }
 
@@ -68,9 +68,9 @@ export default function ProfitLoss(){
                     <h1>Profit or Loss Calculator</h1>
                     <div className="Profit-input-section">
                         <label className="form-label">Enter the Selling Price</label>
-                        <input type="number" className="form-control" name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value =calculateProfit.SellingPrice} />
+                        <input type="number" className="form-control" maxLength={10} name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" onFocus={ (e) => e.target.value= calculateProfit.SellingPrice==0? '': calculateProfit.SellingPrice} onBlur ={(e) => e.target.value =calculateProfit.SellingPrice} />
                         <label className="form-label">Enter the Actual Price</label>
-                        <input type = "number" className="form-control" name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange} onFocus={ (e) => e.target.value=''} onBlur={(e) => e.target.value = calculateProfit.ActualPrice} id = "ActualPrice" /><br/>
+                        <input type = "number" className="form-control" maxLength={10} name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange} onFocus={ (e) => e.target.value= calculateProfit.ActualPrice==0? '': calculateProfit.ActualPrice} onBlur={(e) => e.target.value = calculateProfit.ActualPrice} id = "ActualPrice" /><br/>
                         <button className="btn btn-primary" onClick={CalculateProfit}>FT Calculate</button>
                     </div>
                 </div>
