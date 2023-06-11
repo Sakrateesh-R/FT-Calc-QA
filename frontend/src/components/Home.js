@@ -1,8 +1,6 @@
 import { useState,useEffect } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import {ErrorBoundary} from "react-error-boundary";
-import ProfitLoss from "./calculations/ProfitLoss";
 import axios from "axios";
   
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -120,7 +118,7 @@ export default function Home(){
                 .then( res => console.log(res))
                 .catch(err => err)
             }
-        AddData()
+        //AddData()
    
     }
     function Reset() {
@@ -161,11 +159,11 @@ export default function Home(){
                             <div className="Interest-container-section1">
                                 <h1 id="CI" className="h1">Calculate Interest</h1>
                                 <label className="form-label">Loan amount</label><br/>
-                                <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=''} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
+                                <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=calculateInterest.totalAmount==0? '' : calculateInterest.totalAmount} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
                                 <label className="form-label">Interest rate</label><br/>
-                                <input type="number" className="form-control" id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
+                                <input type="number" className="form-control" maxLength={10} id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=calculateInterest.rateOfInterest==0?'':calculateInterest.rateOfInterest} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
                                 <label className="form-label">Loan term (Years)</label><br/>
-                                <input type="number" className="form-control" id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=''} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
+                                <input type="number" className="form-control" maxLength={10} id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=calculateInterest.noOfYear==0?'':calculateInterest.noOfYear} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
                                 <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Interest </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 
