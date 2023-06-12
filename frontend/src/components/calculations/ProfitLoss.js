@@ -9,7 +9,7 @@ export default function ProfitLoss(){
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
         }).format(num);
-      }
+    }
 
     const [calculateProfit, setCalculateProfit] = useState({
         SellingPrice:0,
@@ -34,7 +34,7 @@ export default function ProfitLoss(){
 
             console.log(profit+ " "+ profitPercentage)
             setCalProfit({
-                profit:profit,
+                profit:formatAsPercentage(profit),
                 profitPercentage:formatAsPercentage(profitPercentage)
             })
         }
