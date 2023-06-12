@@ -79,9 +79,9 @@ export default function Home(){
             //console.log(monthlyDue)
             console.log(InterestCalculate)
             setAfterCalculate({
-                LoanAmount : calculateInterest.totalAmount,
-                TotalSum : repayAmount,
-                InterestAlone: InterestCalculate,
+                LoanAmount : formatAsPercentage(calculateInterest.totalAmount),
+                TotalSum : formatAsPercentage(repayAmount),
+                InterestAlone: formatAsPercentage(InterestCalculate),
                 monthlyPayment: monthlyDue
             })
             setPieData([...pieData,
@@ -159,11 +159,11 @@ export default function Home(){
                             <div className="Interest-container-section1">
                                 <h1 id="CI" className="h1">Calculate Interest</h1>
                                 <label className="form-label">Loan amount</label><br/>
-                                <input type="number" pattern="[0-9]" className="form-control" id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=calculateInterest.totalAmount==0? '' : calculateInterest.totalAmount} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
+                                <input type="number" pattern="[0-9]" className="form-control" required id = "totalAmount" name = "totalAmount" value={calculateInterest.totalAmount} onFocus={ (e) => e.target.value=calculateInterest.totalAmount==0? '' : calculateInterest.totalAmount} onChange={handleChange} onBlur ={(e) => e.target.value = calculateInterest.totalAmount} /> <br/>
                                 <label className="form-label">Interest rate</label><br/>
-                                <input type="number" className="form-control" maxLength={10} id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=calculateInterest.rateOfInterest==0?'':calculateInterest.rateOfInterest} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
+                                <input type="number" className="form-control" maxLength={10} required id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=calculateInterest.rateOfInterest==0?'':calculateInterest.rateOfInterest} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
                                 <label className="form-label">Loan term (Years)</label><br/>
-                                <input type="number" className="form-control" maxLength={10} id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=calculateInterest.noOfYear==0?'':calculateInterest.noOfYear} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
+                                <input type="number" className="form-control" maxLength={10} required id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=calculateInterest.noOfYear==0?'':calculateInterest.noOfYear} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
                                 <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Interest </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 

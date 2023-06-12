@@ -9,6 +9,8 @@ import Deprecation from './components/calculations/Depreciation';
 import Footer from './components/Footer';
 import BMICalulator from './components/calculations/BMICalculator';
 
+
+
 function App() {
   return (
     <Router>
@@ -20,7 +22,7 @@ function App() {
         <Route path='/deprecation' element={<Deprecation/>} />
         <Route path='/bmi' element={<BMICalulator/>} />
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </Router>
   );
 }
