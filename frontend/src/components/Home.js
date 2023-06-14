@@ -164,7 +164,7 @@ export default function Home(){
                                 <input type="number" className="form-control" maxLength={10} required id = "rateOfInterest" name = "rateOfInterest" value={calculateInterest.rateOfInterest} onFocus={ (e) => e.target.value=calculateInterest.rateOfInterest==0?'':calculateInterest.rateOfInterest} onBlur ={(e) => e.target.value = calculateInterest.rateOfInterest} onChange={handleChange} /> <br/>
                                 <label className="form-label">Loan term (Years)</label><br/>
                                 <input type="number" className="form-control" maxLength={10} required id = "noOfYear" name = "noOfYear" value={calculateInterest.noOfYear} onFocus={ (e) => e.target.value=calculateInterest.noOfYear==0?'':calculateInterest.noOfYear} onBlur ={(e) => e.target.value = calculateInterest.noOfYear} onChange={handleChange} /> <br/><br/>
-                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Interest </button>
+                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc Interest </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 
                             </div>

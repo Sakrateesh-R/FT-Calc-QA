@@ -71,7 +71,7 @@ export default function ProfitLoss(){
                         <input type="number" className="form-control" maxLength={10} name="SellingPrice" value={calculateProfit.SellingPrice} onChange={handleChange} id = "sellingPrice" onFocus={ (e) => e.target.value= calculateProfit.SellingPrice==0? '': calculateProfit.SellingPrice} onBlur ={(e) => e.target.value =calculateProfit.SellingPrice} />
                         <label className="form-label">Enter the Actual Price</label>
                         <input type = "number" className="form-control" maxLength={10} name="ActualPrice" value={calculateProfit.ActualPrice} onChange={handleChange} onFocus={ (e) => e.target.value= calculateProfit.ActualPrice==0? '': calculateProfit.ActualPrice} onBlur={(e) => e.target.value = calculateProfit.ActualPrice} id = "ActualPrice" /><br/>
-                        <button className="btn btn-primary" onClick={CalculateProfit}>FT Calculate</button>
+                        <button className="btn btn-primary" onClick={CalculateProfit}>FT Calc Profit/Loss</button>
                     </div>
                 </div>
                 { calProfit.loss ? 

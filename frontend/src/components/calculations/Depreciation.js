@@ -154,7 +154,7 @@ export default function Deprecation(){
                                 <input type="number" className="form-control" maxLength={10} required id = "rateOfInterest" name = "SRValue" value={depValue.SRValue} onFocus={ (e) => e.target.value=depValue.SRValue == 0 ? '':depValue.SRValue} onBlur ={(e) => e.target.value = depValue.SRValue} onChange={handleChange} /> <br/>
                                 <label className="form-label">Asset Useful Years</label><br/>
                                 <input type="number" className="form-control" maxLength={10} required id = "noOfYear" name = "LOA" value={depValue.LOA} onFocus={ (e) => e.target.value=depValue.LOA == 0 ? '':depValue.LOA} onBlur ={(e) => e.target.value = depValue.LOA} onChange={handleChange} /> <br/><br/>
-                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Clac Deprecation </button>
+                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc Deprecation </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 
                             </div>
