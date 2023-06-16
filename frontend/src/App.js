@@ -22,7 +22,7 @@ function App() {
         <Route path='/deprecation' element={<Deprecation/>} />
         <Route path='/bmi' element={<BMICalulator/>} />
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </Router>
   );
 }
