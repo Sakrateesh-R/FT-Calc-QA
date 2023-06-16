@@ -19,6 +19,9 @@ export default function Navbar(){
                         <li className="nav-item">
                         <a className="nav-link" href="/deprecation"> Calculate Depreciation</a>
                         </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="/bmi"> Calculate BMI</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -34,6 +37,9 @@ export default function Navbar(){
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/deprecation">Calculate Deprecation</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/bmi">Calculate BMI</a>
                     </li>
                 </ul>
                 <div className="contact-section-body ">

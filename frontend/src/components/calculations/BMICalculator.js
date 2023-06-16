@@ -2,6 +2,7 @@ import { useState,useEffect } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import axios from "axios";
+import GaugeChart from 'react-gauge-chart'
   
 ChartJS.register(ArcElement, Tooltip, Legend);
 var apiURL = "https://ft-calc-backend.onrender.com/";
@@ -16,6 +17,9 @@ export default function BMICalulator() {
         BMI:0,
         BMIPrime:0
     }) 
+    const [guagePercentage, setGuagePercentage] = useState({
+        percentage:0,
+    })
     const handleChange = (e) =>{
         const{name,value} = e.target;
         setCalculateBMI({...calculateBMI,[name]:value})
@@ -38,41 +42,52 @@ export default function BMICalulator() {
             setClassification({
                 bodyClass:"Severe Thinness"
             })
+            setGuagePercentage(.15)
         }
         else if(BMIValue>=16 && BMIValue<=17){
             setClassification({
                 bodyClass:"Moderate Thinness"
             })
+            setGuagePercentage(.25)
         }
         else if(BMIValue<=18.5){
             setClassification({
                 bodyClass:"Mild Thinness"
             })
+            setGuagePercentage(.35)
         }
         else if(BMIValue<=25){
             setClassification({
                 bodyClass:"Normal"
             })
+            setGuagePercentage(.45)
         }
         else if(BMIValue<=30){
             setClassification({
                 bodyClass:"Overweight"
             })
+            setGuagePercentage(.55)
         }
         else if(BMIValue<=35){
             setClassification({
                 bodyClass:"Obese Class I"
             })
+            setGuagePercentage(.75)
         }
         else if(BMIValue<=40){
             setClassification({
                 bodyClass:"Obese Class II"
             })
+            setGuagePercentage(.85)
         }
         else if(BMIValue>40){
             setClassification({
                 bodyClass:"Obese Class III"
             })
+            setGuagePercentage(.95)
+        }
+        else{
+            setGuagePercentage(1)
         }
     }
 
@@ -160,8 +175,17 @@ export default function BMICalulator() {
                                     </div> <br/>
                                     
                                     <div className="Interest-Pie-chart">
-                                        <h1>Pie data section</h1>
-                                        
+                                        <h1>Pie data section</h1><br/>
+                                        <GaugeChart id="gauge-chart5"
+                                            nrOfLevels={420}
+                                            arcsLength={[0.6, 0.3, 0.8]}
+                                            colors={['#F5CD19','#5BE12C', '#EA4228']}
+                                            cornerRadius={5} 
+                                            percent={guagePercentage}
+                                            arcPadding={0.01}
+                                            needleColor="#345243" 
+                                            hideText = {true}
+                                            />
                                     </div>
                                 
                                 </div>
