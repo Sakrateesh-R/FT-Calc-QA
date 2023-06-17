@@ -3,6 +3,10 @@ body{
   height:100vh;
   position:relative;
   background-color: aliceblue; */
+  /* background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(233,193,255,1) 74%); */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Navigation bar */
@@ -19,7 +23,9 @@ body{
   left:0;
   height:100vh;
   width: 17vw;
-  background:#063970  ;
+  /* background:#063970  ; */
+  background: rgb(74,91,212);
+  background: linear-gradient(4deg, rgba(74,91,212,1) 20%, rgba(135,245,240,1) 58%, rgba(233,115,241,1) 79%);
   color:white;
 }
 .navbar-left .nav-link{
@@ -27,13 +33,13 @@ body{
   font-weight: bolder;
 }
 .navbar-left .nav-link:hover{
-  color:orangered;
+  color:#7386f1;
 }
 .body-position-container{
   /* position: absolute;
   left:17vw;
   z-index: 20; */
-  margin-left: 20vw;
+  margin-left: 17vw;
   
 }
 .contact-section-body{
@@ -46,6 +52,28 @@ body{
   justify-content: space-around;
 }
 /* Home Page */
+
+
+.home-container{
+  background: rgb(233,115,241);
+  background: linear-gradient(29deg, rgba(233,115,241,1) 15%, rgba(135,245,240,1) 58%, rgba(115,134,241,1) 79%);
+  color:white;
+  margin-left: 1px;
+  
+}
+.blockquote{
+  text-shadow: #063970 2px 2px;
+  font-weight: bolder;
+  font-size: 24px;
+  letter-spacing: 6px;
+  
+}
+  
+
+
+
+
+
 
 /* Home page Container */
 

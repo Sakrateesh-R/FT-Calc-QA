@@ -91,7 +91,7 @@ export default function ProfitLoss(){
                     
                 </div>
                 
-                <h2>Profit Percentage : {calProfit.profitPercentage? `${calProfit.profitPercentage} %` : ''} </h2>
+                <h2>Profit Percentage : {calProfit.profitPercentage? `${calProfit.profitPercentage} %` : '-'} </h2>
             </div>
                 }
                 
