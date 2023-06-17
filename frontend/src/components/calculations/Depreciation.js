@@ -63,12 +63,12 @@ export default function Deprecation(){
                 label: "FT Calc",
                 data: [Initial_Amount,amountOfDep],
                 backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
+                '#35F735',
+                '#007CF9',
                 ],
                 borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)'
+                '#007CF9',
+                '#35F735'
                 ],
                 borderWidth: 1,
             }
@@ -191,6 +191,7 @@ export default function Deprecation(){
                                     <Pie 
                                     data={data} 
                                     updateMode = "reset"
+                                    redraw ={true}
                                     />
                                 </div>
                             
@@ -199,9 +200,6 @@ export default function Deprecation(){
                         </div>
                         
                         <br/>
-                    <label>
-                        <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
-                    </label>
                 </div>           
                     
             </div> 

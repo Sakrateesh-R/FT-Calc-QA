@@ -11,7 +11,7 @@ export default function Navbar(){
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/"> Calculate Interest </a>
+                        <a className="nav-link" aria-current="page" href="/interest"> Calculate Interest </a>
                         </li>
                         <li className="nav-item">
                         <a className="nav-link" href="/profit/loss"> Calculate Profit & Loss</a>
@@ -27,10 +27,10 @@ export default function Navbar(){
             </div>
         </nav>
         <div className="navbar-left d-none d-xl-block">
-                <h1>FT Calc</h1>
+                <h1><a className="nav-link"href="/">FT Calc</a></h1>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Interest" aria-current="page" href="/"> Calculate Interest </a>
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Interest" aria-current="page" href="/interest"> Calculate Interest </a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Profit/Loss" aria-current="page" href="/profit/loss"> Calculate Profit & Loss</a>

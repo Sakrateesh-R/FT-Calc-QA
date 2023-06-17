@@ -6,7 +6,7 @@ import axios from "axios";
 ChartJS.register(ArcElement, Tooltip, Legend);
 var apiURL = "https://ft-calc-backend.onrender.com/";
 
-export default function Home(){
+export default function Interest(){
     const [data, setData] = useState({});
     const [calculateInterest, setCalculateInterest] = useState({
         totalAmount:0,
@@ -201,6 +201,7 @@ export default function Home(){
                                     <Pie 
                                     data={data} 
                                     updateMode = "reset"
+                                    redraw = {true}
                                     />
                                 </div>
                             
@@ -209,9 +210,6 @@ export default function Home(){
                         </div>
                         
                         <br/>
-                    <label>
-                        <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
-                    </label>
                 </div>           
                     
             </div> 
