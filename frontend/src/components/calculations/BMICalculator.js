@@ -193,9 +193,6 @@ export default function BMICalulator() {
                        
                             </div>
                         <br/>
-                    <label>
-                        <b>Note:</b> Perform one calculation at a time and reset the calculation and proceed with next one.
-                    </label>
                     </div>
                 </div>
             </div>         
