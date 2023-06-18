@@ -1,4 +1,4 @@
-import { Mongoose } from "mongoose";
+
 import UserBasicDetails from "../models/BasicDetail.js";
 import os from "os";
 

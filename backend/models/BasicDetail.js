@@ -14,5 +14,5 @@ const BasicDetailsSchema = mongoose.Schema({
     
 });
 
-const UserBasicDetails = mongoose.model('UserBasicDetails',BasicDetailsSchema,"FT-Commerce");
+const UserBasicDetails = mongoose.model('UserBasicDetails',BasicDetailsSchema);
 export default UserBasicDetails;
