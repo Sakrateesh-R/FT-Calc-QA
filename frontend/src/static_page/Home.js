@@ -2,8 +2,8 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 
 
-//var apiURL = "https://ft-calc-backend.onrender.com/"
-var apiURL = "http://localhost:5000/"
+var apiURL = "https://ft-calc-backend.onrender.com/"
+//var apiURL = "http://localhost:5000/"
 export default function Home(){
 
     const [data,setData] = useState({
