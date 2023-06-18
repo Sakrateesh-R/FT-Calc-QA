@@ -176,20 +176,20 @@ export default function Interest(){
                         <div className="Dynamic-interest-section">
                             <div className="Interest-Result">
                                 <h1>Your Loan Estimate</h1>
-                                <div className="Interest-Result-Section">
+                                <div className="Interest-Result-Section py-3">
                                     <div className="Interest-Result-Section-left" >
-                                        <h2>Monthly Due</h2>
-                                        <h4>₹{!afterCalculate.monthlyPayment ? 0 : formatAsPercentage(afterCalculate.monthlyPayment)}</h4> 
+                                        <h3>Monthly Due</h3>
+                                        <h4><b>₹{!afterCalculate.monthlyPayment ? 0 : formatAsPercentage(afterCalculate.monthlyPayment)}</b></h4> 
                                     </div>
                                     <div className="Interest-Result-Section-right" >
-                                        <h2>Overview</h2>
-                                        <div className="Interest-Result-Overview">
-                                            <h4 className="form-label" >Loan Amount </h4>
-                                            <h4>₹ {!afterCalculate.LoanAmount? 0 : afterCalculate.LoanAmount}</h4>
-                                            <h4 className="form-label" >Total interest payments</h4>
-                                            <h4 >₹ {!afterCalculate.InterestAlone ? 0 : afterCalculate.InterestAlone}</h4>
-                                            <h4 className="form-label" >Total loan payments  </h4>
-                                            <h4>₹ {!afterCalculate.TotalSum ? 0 : afterCalculate.TotalSum}</h4>
+                                        <h3>Overview</h3>
+                                        <div className="Interest-Result-Overview py-3">
+                                            <h5 className="form-label" ><b>Loan Amount</b> </h5>
+                                            <h6>₹ {!afterCalculate.LoanAmount? 0 : afterCalculate.LoanAmount}</h6>
+                                            <h5 className="form-label" ><b>Total interest payments </b></h5>
+                                            <h6 >₹ {!afterCalculate.InterestAlone ? 0 : afterCalculate.InterestAlone}</h6>
+                                            <h5 className="form-label" ><b>Total loan payments </b> </h5>
+                                            <h6>₹ {!afterCalculate.TotalSum ? 0 : afterCalculate.TotalSum}</h6>
                                         </div>
                                     </div>
                                     

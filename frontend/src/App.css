@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 body{
   /* width:100%;
   height:100vh;
@@ -7,6 +8,16 @@ body{
   background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(233,193,255,1) 74%); */
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Merriweather', serif;
+
+}
+.para-content{
+  text-indent: 25px;
+  letter-spacing: 1.5px;
+  word-spacing: 2px;
+  line-height: 25px;
+  text-align: justify;
+  font-weight:550;
 }
 
 /* Navigation bar */
