@@ -63,12 +63,12 @@ export default function Deprecation(){
                 label: "FT Calc",
                 data: [Initial_Amount,amountOfDep],
                 backgroundColor: [
-                '#35F735',
-                '#007CF9',
+                '#e973f1',
+                '#7386f1',
                 ],
                 borderColor: [
-                '#007CF9',
-                '#35F735'
+                '#7386f1',
+                '#e973f1'
                 ],
                 borderWidth: 1,
             }
@@ -171,15 +171,15 @@ export default function Deprecation(){
                                         <h2>Asset Selling Price</h2>
                                         <h4>₹{!piedata.DepAmount ? 0 : piedata.DepAmount}</h4> 
                                     </div>
-                                    <div className="Interest-Result-Section-right" >
-                                        <h2>Depreciation Overview</h2>
+                                    <div className="Interest-Result-Section-right px-2" >
+                                        <h2>Overview</h2>
                                         <div className="Interest-Result-Overview">
-                                            <h4 className="form-label" >Asset Original Value </h4>
-                                            <h4>₹ {!piedata.OriginalAmount? 0 : piedata.OriginalAmount}</h4>
-                                            <h4 className="form-label" > Assest Selling Price</h4>
-                                            <h4 >₹ {!piedata.AmountOfDep ? 0 : piedata.AmountOfDep}</h4>
-                                            <h4 className="form-label" >Asset Rate of Deprecation Per Year </h4>
-                                            <h4>₹ {!piedata.DepAmount ? 0 : piedata.DepAmount}</h4>
+                                            <h5 className="form-label" ><b>Asset Original Value </b></h5>
+                                            <h6>₹ {!piedata.OriginalAmount? 0 : piedata.OriginalAmount}</h6>
+                                            <h5 className="form-label" > <b>Assest Selling Price</b></h5>
+                                            <h6 >₹ {!piedata.AmountOfDep ? 0 : piedata.AmountOfDep}</h6>
+                                            <h5 className="form-label" ><b> Rate of Deprecation Per Year </b></h5>
+                                            <h6>₹ {!piedata.DepAmount ? 0 : piedata.DepAmount}</h6>
                                         </div>
                                     </div>
                                     

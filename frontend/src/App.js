@@ -7,8 +7,9 @@ import ProfitLoss from './components/calculations/ProfitLoss';
 import Deprecation from './components/calculations/Depreciation';
 import Footer from './components/Footer';
 import BMICalulator from './components/calculations/BMICalculator';
-import Interest from './components/Interest';
+import Interest from './components/calculations/Interest';
 import Home from './static_page/Home';
+import BudgetCalculator from './components/HouseCalculation/BugetCalculator';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path ='/profit/loss' element={<ProfitLoss/>} />
         <Route path='/deprecation' element={<Deprecation/>} />
         <Route path='/bmi' element={<BMICalulator/>} />
+        <Route path='/budget' element={<BudgetCalculator/>} />
         <Route path="/" element={<Home/>} />
       </Routes>
     </Router>
