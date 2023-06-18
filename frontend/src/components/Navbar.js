@@ -73,7 +73,7 @@ export default function Navbar(){
                     </div>
                     </ul>
                     <div className="version-container">
-                        <p>Version FT 0.18</p>
+                        <p>Version FT 0.20</p>
                     </div>
                 </div>
             </div>
