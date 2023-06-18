@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 
 
@@ -6,6 +7,7 @@ var apiURL = "https://ft-calc-backend.onrender.com/"
 //var apiURL = "http://localhost:5000/"
 export default function Home(){
 
+    const navigate = useNavigate();
     const [data,setData] = useState({
         firstName:"",
         lastName:"",
@@ -20,15 +22,25 @@ export default function Home(){
     }
 
     const sendReview = () => {
-        const AddData = (e) => {
-            axios.post(`${apiURL}addReview`,data)
-               .then( res => console.log(res))
-               .catch(err => err)
+        if(data.email=='' || data.firstName == '' || data.suggesstions ==''){
+            alert("Enter all the fields and click on submit")
+        }else{
+            const AddData = (e) => {
+                axios.post(`${apiURL}addReview`,data)
+                   .then( res => console.log(res))
+                   .catch(err => err)
+            }
+            AddData()
+            alert("Thanks for providing suggestions, we will look and work on it")
         }
-        AddData()
-        alert("Thanks for providing suggestions, we will look and work on it")
+        
         
     }
+    const url = new URL(window.location);
+    url.searchParams.delete('message');
+    window.history.replaceState(null, null, url)
+    
+    
 
 
     return(
