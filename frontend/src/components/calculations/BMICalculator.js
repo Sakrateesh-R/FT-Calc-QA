@@ -160,14 +160,14 @@ export default function BMICalulator() {
                                         <div className="Interest-Result-Section-right" >
                                             <h2>Overview</h2>
                                             <div className="Interest-Result-Overview">
-                                                <h4 className="form-label" > Your Height </h4>
-                                                <h4>{!calculateBMI.height? 0 : calculateBMI.height} cm</h4>
-                                                <h4 className="form-label" >Your Weight</h4>
-                                                <h4 >{!calculateBMI.weight ? 0 : calculateBMI.weight} kg</h4>
-                                                <h4 className="form-label" >Your BMI Prime</h4>
-                                                <h4>{!afterCalculate.BMIPrime ? 0 : afterCalculate.BMIPrime}</h4>
-                                                <h4 className="form-label" >Your Body classification</h4>
-                                                <h4>{!classification.bodyClass ? "Yet to calculate" : classification.bodyClass}</h4>
+                                                <h5 className="form-label" > Your Height </h5>
+                                                <h6>{!calculateBMI.height? 0 : calculateBMI.height} cm</h6>
+                                                <h5 className="form-label" >Your Weight</h5>
+                                                <h6 >{!calculateBMI.weight ? 0 : calculateBMI.weight} kg</h6>
+                                                <h5 className="form-label" >Your BMI Prime</h5>
+                                                <h6>{!afterCalculate.BMIPrime ? 0 : afterCalculate.BMIPrime}</h6>
+                                                <h5 className="form-label" >Your Body classification</h5>
+                                                <h6>{!classification.bodyClass ? "Yet to calculate" : classification.bodyClass}</h6>
                                             </div>
                                         </div>
                                         
