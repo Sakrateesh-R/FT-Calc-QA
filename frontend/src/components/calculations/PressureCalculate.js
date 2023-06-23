@@ -6,15 +6,13 @@ export default function PressureCaculate(){
 
     const [data, setData] = useState({});
     const [calculatePressure, setCalculatePressure] = useState({
-        force:0,
-        area:0,
-        finalPressure:0
+        stress:0,
+        thickness:0,
+        diameter:0
     })
     const[afterCalculate,setAfterCalculate] = useState({
-        initialPressure:0,
-        initialPressurePercentage:0,
-        finalPressurePercentage:0,
-        pressurePercentage:0
+       averagePressure:0,
+       pressure:0
 
     }) 
     const [guagePercentage, setGuagePercentage] = useState({
@@ -39,27 +37,56 @@ export default function PressureCaculate(){
         class:'',
     })
 
+    const pressureClassification = (pressure) => {
+        if(pressure<16){
+            setGuagePercentage(.15)
+        }
+        else if(pressure>=20 && pressure<=17){
+           
+            setGuagePercentage(.25)
+        }
+        else if(pressure<=40){
+            
+            setGuagePercentage(.35)
+        }
+        else if(pressure<=50){
+            
+            setGuagePercentage(.45)
+        }
+        else if(pressure<70){
+           
+            setGuagePercentage(.55)
+        }
+        else if(pressure<80){
+            
+            setGuagePercentage(.75)
+        }
+        else if(pressure<90){
+            
+            setGuagePercentage(.85)
+        }
+        else if(pressure<100){
+            
+            setGuagePercentage(.95)
+        }
+        else{
+            setGuagePercentage(1)
+        }
+    }
+
     const Calculate = () => {
         console.log(calculatePressure);
-        // Calculating initial pressure
+        const pressure = (2*calculatePressure.thickness*calculatePressure.stress) / calculatePressure.diameter // P= (2*T*S/D)
 
-        let startingPressure = (calculatePressure.force/calculatePressure.area)
+        const averagePressure = pressure/100
 
-        // Calculating initial pressure percentage
-        let initial_pressure_percentage = (startingPressure/1000)*100
+        console.log(pressure)
+        console.log(averagePressure)
 
-        // Calculating Final pressure percentage
-        let final_pressure_percentage = (calculatePressure.finalPressure/1000)*100
-
-        let pressure_diff = final_pressure_percentage - startingPressure
-
-        let guagepercentageval = pressure_diff/100
 
         setAfterCalculate({
-            initialPressure:formatAsPercentage(startingPressure),
-            initialPressurePercentage:formatAsPercentage(initial_pressure_percentage),
-            finalPressurePercentage:formatAsPercentage(final_pressure_percentage),
-            pressurePercentage:formatAsPercentage(pressure_diff)
+            averagePressure:formatAsPercentage(averagePressure),
+            pressure:formatAsPercentage(pressure)
         })
 
         console.log(afterCalculate)
@@ -83,7 +110,7 @@ export default function PressureCaculate(){
             }
             ],
         })
-        setGuagePercentage(guagepercentageval)
+        pressureClassification(averagePressure)
         setDisplayPie(true)
     }
 
@@ -99,14 +126,15 @@ export default function PressureCaculate(){
                         <div className="Interest-container">
                             
                             <div className="Interest-container-section1">
-                                <h1 id="CI" className="h1">Calculate Pressure</h1>
-                                <label className="form-label">Enter Force &#40; in Kg  &#41;</label><br/>
-                                <input type="number" pattern="[0-9]" required className="form-control" maxLength={10} id = "totalAmount" name = "force" value={calculatePressure.force} onFocus={ (e) => e.target.value = calculatePressure.force==0? '' : calculatePressure.force} onChange={handleChange} onBlur ={(e) => e.target.value = calculatePressure.force} /> <br/>
-                                <label className="form-label">Enter Area &#40; in m^2  &#41;</label><br/>
-                                <input type="number" className="form-control" id = "rateOfInterest" maxLength={10} name = "area" value={calculatePressure.area} onFocus={ (e) => e.target.value = calculatePressure.area==0? '' : calculatePressure.area} onBlur ={(e) => e.target.value = calculatePressure.area} onChange={handleChange} /> <br/>
-                                
-                                <label className="form-label">Enter Final Pressure &#40; in kg/m^2  &#41;</label><br/>
-                                <input type="number" className="form-control" id = "rateOfInterest" maxLength={10} name = "finalPressure" value={calculatePressure.finalPressure} onFocus={ (e) => e.target.value = calculatePressure.finalPressure==0? '' : calculatePressure.finalPressure} onBlur ={(e) => e.target.value = calculatePressure.finalPressure} onChange={handleChange} /> <br/>
+                                <h1 id="CI" className="h1">Calculate Pipe Pressure</h1><br/>
+                                <label className="form-label">Enter allowable stress &#40; Pa &#41;</label><br/>
+                                <input type="number" pattern="[0-9]" required className="form-control" maxLength={10} id = "totalAmount" name = "stress" value={calculatePressure.stress} onFocus={ (e) => e.target.value = calculatePressure.stress==0? '' : calculatePressure.stress} onChange={handleChange} onBlur ={(e) => e.target.value = calculatePressure.stress} /> <br/>
+                    
+                                <label className="form-label">Enter wall thickness &#40; mm &#41; </label><br/>
+                                <input type="number" className="form-control" id = "rateOfInterest" maxLength={10} name = "thickness" value={calculatePressure.thickness} onFocus={ (e) => e.target.value = calculatePressure.thickness==0? '' : calculatePressure.thickness} onBlur ={(e) => e.target.value = calculatePressure.thickness} onChange={handleChange} /> <br/>
+
+                                <label className="form-label">Enter outer diameter &#40; m &#41; </label><br/>
+                                <input type="number" className="form-control" id = "rateOfInterest" maxLength={10} name = "diameter" value={calculatePressure.diameter} onFocus={ (e) => e.target.value = calculatePressure.diameter==0? '' : calculatePressure.diameter} onBlur ={(e) => e.target.value = calculatePressure.diameter} onChange={handleChange} /> <br/>
 
                                 <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc Interest </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
@@ -123,20 +151,20 @@ export default function PressureCaculate(){
                                     <div className="Interest-Result-Section">
                                         <div className="Interest-Result-Section-left" >
                                             <h2>Average Pressure</h2>
-                                            <h4>{!afterCalculate.pressurePercentage ? 0 : afterCalculate.pressurePercentage}</h4> 
+                                            <h4>{!afterCalculate.averagePressure ? 0 : afterCalculate.averagePressure}</h4> 
                                         </div>
                                         <div className="Interest-Result-Section-right" >
                                             <h2>Overview</h2>
                                             <div className="Interest-Result-Overview">
-                                                <h4 className="form-label" > Initial Pressure </h4>
-                                                <h4>{!afterCalculate.initialPressure? 0 : afterCalculate.initialPressure}&#40; Pa &#41;</h4>
-                                                <h4 className="form-label" >Final Pressure</h4>
-                                                <h4 >{!calculatePressure.finalPressure ? 0 : calculatePressure.finalPressure}  &#40;Pa  &#41;</h4>
-                                                <h4 className="form-label" >Area </h4>
-                                                <h4>{!calculatePressure.area ? 0 : calculatePressure.area}</h4>
-                                                <h4 className="form-label" >Force</h4>
-                                                <h4>{!calculatePressure.force ? 0 : calculatePressure.force}</h4>
-                                                <h4 className="form-label" >Your Body classification</h4>
+                                                <h4 className="form-label" > Pressure</h4>
+                                                <h4>{!afterCalculate.pressure? 0 : afterCalculate.pressure}&#40; Pa &#41;</h4>
+                                                <h4 className="form-label" >Allowable Pressure</h4>
+                                                <h4 >{!calculatePressure.stress ? 0 : calculatePressure.stress}  &#40;Pa  &#41;</h4>
+                                                <h4 className="form-label" >Wall Thickness</h4>
+                                                <h4>{!calculatePressure.thickness? 0 : calculatePressure.thickness}&#40; mm &#41;</h4>
+                                                <h4 className="form-label" >Outside Diameter</h4>
+                                                <h4>{!calculatePressure.diameter? 0 : calculatePressure.diameter}&#40; m &#41;</h4>
+                                                <h4 className="form-label" >Pressure classification</h4>
                                                 <h4>{!classification.class ? "Yet to calculate" : classification.class}</h4>
                                             </div>
                                         </div>
