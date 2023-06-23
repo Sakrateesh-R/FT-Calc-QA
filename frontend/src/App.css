@@ -38,13 +38,19 @@ body{
   background: rgb(74,91,212);
   background: linear-gradient(4deg, rgba(74,91,212,1) 20%, rgba(135,245,240,1) 58%, rgba(233,115,241,1) 79%);
   color:white;
+  text-shadow:black 2px 2px 2px;
+  letter-spacing: 1px;
 }
 .navbar-left .nav-link{
   color:white;
-  font-weight: bolder;
+
+  font-weight: 600;
+  
 }
 .navbar-left .nav-link:hover{
-  color:#7386f1;
+  color:black;
+  text-shadow:white 2px 2px 2px;
+  letter-spacing: 1.4px;
 }
 .body-position-container{
   /* position: absolute;
@@ -245,9 +251,12 @@ figcaption{
 .version-container{
   color:whitesmoke;
   width: 100%;
-  align-items: end;
+  position:relative;
 }
-
+.footer{
+  position: fixed;
+  bottom: 1px;
+}
 /* END OF FOOTER SECTION */
 
 /* Mobile resolution design */
@@ -260,7 +269,7 @@ figcaption{
     background: white;
     color:black;
     margin-left: 1px;
-    
+    max-width: inherit !important;
   }
   .blockquote{
     text-shadow: grey 2px 2px;
@@ -322,6 +331,7 @@ figcaption{
     color:whitesmoke;
     display: block;
   }
+  
   
 }
 @media only screen and (max-width: 1200px){

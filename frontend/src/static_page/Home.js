@@ -45,7 +45,7 @@ export default function Home(){
 
     return(
         <div className="body-position-container">
-            <div className="container home-container ">
+            <div className="container home-container " style={{maxWidth:" inherit"}}>
                 <div className="body-container ">
                     <div className="body-header-section ">
                         <figure class="text-center py-4 ">
@@ -62,7 +62,7 @@ export default function Home(){
                 
             </div>
             <div className="container px-4 py-2">
-                <div className="home-body-container">
+                <div className="home-body-container" >
                     <div className="home-section-1">
                         <h3>Welcome to our Calculation App!</h3>
                         <p className="para-content">Simplify your life with our powerful and user-friendly Calculation App. Whether you're a student, professional, or just need quick calculations on the go, our app is here to help. With its intuitive interface and extensive range of features, it's the perfect tool for all your mathematical needs.</p>
@@ -101,7 +101,17 @@ export default function Home(){
                                 </p>
                                 <a href="/bmi" className="nav-item text-danger nav-link">Calculate BMI here</a>
                             </li>
+                            <li className="list-group-item">
+                                <b>Barlow's Pipe Pressure Calculator</b><br/><br/>
+                                <p className="para-content">
+                                    Barlow’s Formula calculator is a highly useful tool in determining the requirements of your pipe. But ultimately, the design of complex pressure containment systems involves much more than the application of Barlow’s Formula. For almost all pressure vessels, ASME code stipulates the requirements for design and testing.
+                                </p>
+                                <a href="/pressure" className="nav-item text-danger nav-link">Calculate Pressure here</a>
+                            </li>
+                            
+                            
                         </ul>
+                        <hr/>
                     </div>
                     <div className="Suggesstions-box mx-2">
                         <h4>Drop your suggesstions below</h4>
