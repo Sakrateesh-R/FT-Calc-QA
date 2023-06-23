@@ -53,7 +53,7 @@ export default function Home(){
                             <h1>FT Calculator</h1>
                         </blockquote>
                         <figcaption class="blockquote-footer">
-                            <i>An product of Future Technology</i>
+                            <i>A product of Future Technology</i>
                         </figcaption>
                         </figure>
                     </div>

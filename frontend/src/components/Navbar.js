@@ -22,6 +22,9 @@ export default function Navbar(){
                         <li className="nav-item">
                         <a className="nav-link" href="/bmi"> Calculate BMI</a>
                         </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="/pressure"> Calculate Pipe Pressure</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +43,9 @@ export default function Navbar(){
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/bmi">Calculate BMI</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/pressure">Calculate Pipe Pressure</a>
                     </li>
                 </ul>
                 <div className="contact-section-body ">
@@ -73,7 +79,7 @@ export default function Navbar(){
                     </div>
                     </ul>
                     <div className="version-container">
-                        <p>Version FT 0.20</p>
+                        <p>Version FT 0.22</p>
                     </div>
                 </div>
             </div>
