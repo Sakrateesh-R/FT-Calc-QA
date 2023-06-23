@@ -92,36 +92,51 @@ export default function BMICalulator() {
     }
 
     const Calculate = () => {
-        console.log(calculateBMI);
-        let BMICalculate = (calculateBMI.weight/calculateBMI.height / calculateBMI.height) *10000
-        console.log(BMICalculate)
-        let BMIPrime = BMICalculate/25
-        console.log(BMIPrime)
-        setAfterCalculate({
-            BMI:formatAsPercentage(BMICalculate),
-            BMIPrime:formatAsPercentage(BMIPrime)
-        })
-        setData({
-            labels: ['Asset Original Value','Asset Selling Price'],
-            datasets: [
-            {
-                label: "FT Calc",
-                data: [data.BMI,data.BMIPrime],
-                backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
+
+        if(calculateBMI.height!=0 && calculateBMI.weight!=0){
+            console.log(calculateBMI);
+            let BMICalculate = (calculateBMI.weight/calculateBMI.height / calculateBMI.height) *10000
+            console.log(BMICalculate)
+            let BMIPrime = BMICalculate/25
+            console.log(BMIPrime)
+            setAfterCalculate({
+                BMI:formatAsPercentage(BMICalculate),
+                BMIPrime:formatAsPercentage(BMIPrime)
+            })
+            setData({
+                labels: ['Asset Original Value','Asset Selling Price'],
+                datasets: [
+                {
+                    label: "FT Calc",
+                    data: [data.BMI,data.BMIPrime],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1,
+                }
                 ],
-                borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1,
+            })
+            bodyClassification(BMICalculate)
+            setDisplayPie(true)
+            const DBdata = {
+                CalculatedData:'Calculated Depreciation'
             }
-            ],
-        })
-        bodyClassification(BMICalculate)
-        setDisplayPie(true)
+            const AddData = (e) => {
+                 axios.post(`${apiURL}addData`,DBdata)
+                    .then( res => console.log(res))
+                    .catch(err => err)
+                }
+            //AddData()
+        }else{
+            alert("Please Enter all the fields and click on FT Calc BMI")
+        }
     }
+        
 
     const Reset = () =>{
         document.location.reload()
@@ -140,7 +155,7 @@ export default function BMICalulator() {
                                 <input type="number" pattern="[0-9]" required className="form-control" maxLength={10} id = "totalAmount" name = "weight" value={calculateBMI.weight} onFocus={ (e) => e.target.value = calculateBMI.weight==0? '' : calculateBMI.weight} onChange={handleChange} onBlur ={(e) => e.target.value = calculateBMI.weight} /> <br/>
                                 <label className="form-label">Enter Your Height &#40; in cm  &#41;</label><br/>
                                 <input type="number" className="form-control" id = "rateOfInterest" maxLength={10} name = "height" value={calculateBMI.height} onFocus={ (e) => e.target.value = calculateBMI.height==0? '' : calculateBMI.height} onBlur ={(e) => e.target.value = calculateBMI.height} onChange={handleChange} /> <br/>
-                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc Interest </button>
+                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc BMI </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 
                             </div>
