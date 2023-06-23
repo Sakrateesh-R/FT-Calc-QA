@@ -147,25 +147,25 @@ export default function PressureCaculate(){
                         { displayPie.value == false? console.log("not rendered") :
                             <div className="Dynamic-interest-section">
                                 <div className="Interest-Result">
-                                    <h1>Pressure Results</h1>
+                                    <h1>Pressure Results</h1><br/>
                                     <div className="Interest-Result-Section">
                                         <div className="Interest-Result-Section-left" >
                                             <h2>Average Pressure</h2>
-                                            <h4>{!afterCalculate.averagePressure ? 0 : afterCalculate.averagePressure}</h4> 
+                                            <h4>{!afterCalculate.averagePressure ? 0 : afterCalculate.averagePressure} %</h4> 
                                         </div>
                                         <div className="Interest-Result-Section-right" >
                                             <h2>Overview</h2>
                                             <div className="Interest-Result-Overview">
-                                                <h4 className="form-label" > Pressure</h4>
-                                                <h4>{!afterCalculate.pressure? 0 : afterCalculate.pressure}&#40; Pa &#41;</h4>
-                                                <h4 className="form-label" >Allowable Pressure</h4>
-                                                <h4 >{!calculatePressure.stress ? 0 : calculatePressure.stress}  &#40;Pa  &#41;</h4>
-                                                <h4 className="form-label" >Wall Thickness</h4>
-                                                <h4>{!calculatePressure.thickness? 0 : calculatePressure.thickness}&#40; mm &#41;</h4>
-                                                <h4 className="form-label" >Outside Diameter</h4>
-                                                <h4>{!calculatePressure.diameter? 0 : calculatePressure.diameter}&#40; m &#41;</h4>
-                                                <h4 className="form-label" >Pressure classification</h4>
-                                                <h4>{!classification.class ? "Yet to calculate" : classification.class}</h4>
+                                                <h5 className="form-label" > Pressure</h5>
+                                                <h6>{!afterCalculate.pressure? 0 : afterCalculate.pressure}&#40; Pa &#41;</h6>
+                                                <h5 className="form-label" >Allowable Pressure</h5>
+                                                <h6 >{!calculatePressure.stress ? 0 : calculatePressure.stress}  &#40;Pa  &#41;</h6>
+                                                <h5 className="form-label" >Wall Thickness</h5>
+                                                <h6>{!calculatePressure.thickness? 0 : calculatePressure.thickness}&#40; mm &#41;</h6>
+                                                <h5 className="form-label" >Outside Diameter</h5>
+                                                <h6>{!calculatePressure.diameter? 0 : calculatePressure.diameter}&#40; m &#41;</h6>
+                                                {/* <h5 className="form-label" >Pressure classification</h5>
+                                                <h6>{!classification.class ? "Yet to calculate" : classification.class}</h6> */}
                                             </div>
                                         </div>
                                         
@@ -176,8 +176,8 @@ export default function PressureCaculate(){
                                         <h1>Pie data section</h1><br/>
                                         <GaugeChart id="gauge-chart5"
                                             nrOfLevels={420}
-                                            arcsLength={[0.6, 0.3, 0.8]}
-                                            colors={['#F5CD19','#5BE12C', '#EA4228']}
+                                            arcsLength={[0.4, 0.5, 0.2]}
+                                            colors={['#5BE12C','#F5CD19', '#EA4228']}
                                             cornerRadius={5} 
                                             percent={guagePercentage}
                                             arcPadding={0.01}
