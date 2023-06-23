@@ -1,6 +1,8 @@
 import { useState } from "react";
 import GaugeChart from "react-gauge-chart";
+import axios from "axios";
 
+var apiURL = "https://ft-calc-backend.onrender.com/"
 
 export default function PressureCaculate(){
 
@@ -75,43 +77,58 @@ export default function PressureCaculate(){
     }
 
     const Calculate = () => {
-        console.log(calculatePressure);
-        const pressure = (2*calculatePressure.thickness*calculatePressure.stress) / calculatePressure.diameter // P= (2*T*S/D)
+        if(calculatePressure.diameter!=0 && calculatePressure.stress!=0 && calculatePressure.thickness!=0){
+            console.log(calculatePressure);
+            const pressure = (2*calculatePressure.thickness*calculatePressure.stress) / calculatePressure.diameter // P= (2*T*S/D)
 
-        const averagePressure = pressure/100
+            const averagePressure = pressure/100
 
-        console.log(pressure)
-        console.log(averagePressure)
-
-
-        setAfterCalculate({
-            averagePressure:formatAsPercentage(averagePressure),
-            pressure:formatAsPercentage(pressure)
-        })
-
-        console.log(afterCalculate)
+            console.log(pressure)
+            console.log(averagePressure)
 
 
-        setData({
-            labels: ['Asset Original Value','Asset Selling Price'],
-            datasets: [
-            {
-                label: "FT Calc",
-                data: [data.BMI,data.BMIPrime],
-                backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
+            setAfterCalculate({
+                averagePressure:formatAsPercentage(averagePressure),
+                pressure:formatAsPercentage(pressure)
+            })
+
+            console.log(afterCalculate)
+
+
+            setData({
+                labels: ['Asset Original Value','Asset Selling Price'],
+                datasets: [
+                {
+                    label: "FT Calc",
+                    data: [data.BMI,data.BMIPrime],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1,
+                }
                 ],
-                borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1,
+            })
+            pressureClassification(averagePressure)
+            setDisplayPie(true)
+
+            const DBdata = {
+                CalculatedData:'Calculated Depreciation'
             }
-            ],
-        })
-        pressureClassification(averagePressure)
-        setDisplayPie(true)
+            const AddData = (e) => {
+                axios.post(`${apiURL}addData`,DBdata)
+                   .then( res => console.log(res))
+                   .catch(err => err)
+               }
+           //AddData()
+        }else{
+            alert("Please Enter all the fields and click on FT Calc Pressure")
+        }
+        
     }
 
     const Reset = () =>{
@@ -136,7 +153,7 @@ export default function PressureCaculate(){
                                 <label className="form-label">Enter outer diameter &#40; m &#41; </label><br/>
                                 <input type="number" className="form-control" id = "rateOfInterest" maxLength={10} name = "diameter" value={calculatePressure.diameter} onFocus={ (e) => e.target.value = calculatePressure.diameter==0? '' : calculatePressure.diameter} onBlur ={(e) => e.target.value = calculatePressure.diameter} onChange={handleChange} /> <br/>
 
-                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc Interest </button>
+                                <button  onClick={Calculate} className="btn-calc btn btn-primary"> FT Calc Pressure </button>
                                 <button className="btn btn-danger" onClick={Reset}> Reset </button>
                                 
                             </div>
