@@ -43,10 +43,10 @@ export default function Navbar(){
                     <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/deprecation">Calculate Deprecation</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/bmi">Calculate BMI</a>
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate BMI" aria-current="page" href="/bmi">Calculate BMI</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/pressure">Calculate Pipe Pressure</a>
+                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Pipe Pressure" aria-current="page" href="/pressure">Calculate Pipe Pressure</a>
                     </li>
                 </ul>
                  {/* <div className="contact-section-body ">
