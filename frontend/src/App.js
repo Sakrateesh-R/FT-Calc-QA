@@ -11,6 +11,7 @@ import Interest from './components/calculations/Interest';
 import Home from './static_page/Home';
 import BudgetCalculator from './components/HouseCalculation/BugetCalculator';
 import PressureCaculate from './components/calculations/PressureCalculate';
+import Addition from './components/calculations/Addition';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/bmi' element={<BMICalulator/>} />
         <Route path='/budget' element={<BudgetCalculator/>} />
         <Route path='/pressure' element={<PressureCaculate/>}/>
+        <Route path='/addition' element={<Addition/>}/>
         <Route path="/" element={<Home/>} />
       </Routes>
     </Router>
