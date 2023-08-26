@@ -23,19 +23,13 @@ export default function BiologyMain() {
             <div className="home-body-container" >
                 <div className="feature-list my-4">
                     <h4>Biology Modules</h4>
-                    <ul className="list-group list-group-flush">
-                        <li  className="list-group-item">
-                            <b>BMI Calculation</b><br/><br/>
-                            <p className="para-content">
-                                BMI (Body Mass Index) is a numerical value calculated based on an individual's weight and height. It is a widely used method to assess body composition and determine if a person's weight is within a healthy range.
-                                BMI calculation is a widely recognized and easily accessible method for assessing weight status and determining potential health risks associated with weight. It serves as a starting point for discussions about weight management and can be used in conjunction with other assessments to form a more comprehensive understanding of an individual's health.
-                            </p>
-                            <a href="/bmi" className="nav-item text-danger nav-link">Calculate BMI here</a>
-                        </li>
-                        
-                        
-                        
-                    </ul>
+                        <div className="card text-center" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title p-2"><i class="fa-solid fa-dumbbell fa-2xl"></i></h5>
+                                <p className="card-text">BMI Calculation</p>
+                                <a href="/bmi" className="btn btn-primary">Calculate BMI</a>
+                            </div>
+                        </div>
                     <hr/>
                 </div>
             </div>
