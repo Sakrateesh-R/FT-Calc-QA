@@ -23,18 +23,13 @@ export default function ConstructionMain() {
             <div className="home-body-container" >
                 <div className="feature-list my-4">
                     <h4>Construction Modules</h4>
-                    <ul className="list-group list-group-flush">
-                        <li className="list-group-item">
-                            <b>Barlow's Pipe Pressure Calculator</b><br/><br/>
-                            <p className="para-content">
-                                Barlow’s Formula calculator is a highly useful tool in determining the requirements of your pipe. But ultimately, the design of complex pressure containment systems involves much more than the application of Barlow’s Formula. For almost all pressure vessels, ASME code stipulates the requirements for design and testing.
-                            </p>
-                            <a href="/pressure" className="nav-item text-danger nav-link">Calculate Pressure here</a>
-                        </li>
-                        
-                        
-                        
-                    </ul>
+                        <div className="card text-center" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title p-2"><i class="fa-solid fa-faucet-drip fa-beat-fade fa-2xl" style={{color: "#ff0026"}}></i></h5>
+                                <p className="card-text">Barlow's Pipe Pressure Calculator</p>
+                                <a href="/pressure" className="btn btn-primary">Calculate Pipe Pressure</a>
+                            </div>
+                        </div>
                     <hr/>
                 </div>
             </div>

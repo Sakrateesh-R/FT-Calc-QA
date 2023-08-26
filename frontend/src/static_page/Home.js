@@ -72,21 +72,21 @@ export default function Home(){
                         <div className='row p-2 justify-content-around'>
                             <div className="card text-center col-3">
                                 <div className="card-body">
-                                    <h5 className="card-title p-2"><i className="fa-solid fa-car fa-beat-fade fa-2xl"></i></h5>
+                                    <h5 className="card-title p-2"><i class="fa-solid fa-flask fa-2xl" style={{color:"purple"}}></i></h5>
                                     <p className="card-text">Physics </p>
                                     <a href="/speed" className="btn btn-primary">1 Calculators</a>
                                 </div>
                             </div>
                             <div className="card text-center col-4" >
                                 <div className="card-body">
-                                    <h5 className="card-title p-2"><i class="fa-solid fa-coins fa-2xl"></i> <i class="fa-solid fa-arrow-trend-up fa-beat fa-2xl"></i></h5>
+                                    <h5 className="card-title p-2"><i class="fa-solid fa-coins fa-2xl" style={{color:"gold"}}></i> <i class="fa-solid fa-arrow-trend-up fa-beat fa-2xl" style={{color:"green"}}></i></h5>
                                     <p className="card-text">Finance</p>
                                     <a href="/speed" className="btn btn-primary">3 Calculators</a>
                                 </div>
                             </div>
                             <div className="card text-center col-3" >
                                 <div className="card-body">
-                                    <h5 className="card-title p-2"><i class="fa-solid fa-helmet-safety fa-2xl"></i></h5>
+                                    <h5 className="card-title p-2"><i class="fa-solid fa-helmet-safety fa-2xl" style={{color:"orangered"}}></i></h5>
                                     <p className="card-text">Construction</p>
                                     <a href="/speed" className="btn btn-primary">1 Calculators</a>
                                 </div>
@@ -96,21 +96,21 @@ export default function Home(){
                         <div className='row p-2 justify-content-around'>
                             <div className="card text-center col-3 " >
                                 <div className="card-body">
-                                    <h5 className="card-title p-2"><i class="fa-solid fa-dna fa-2xl"></i></h5>
+                                    <h5 className="card-title p-2"><i class="fa-solid fa-dna fa-2xl" style={{color:"red"}}></i></h5>
                                     <p className="card-text">Biology </p>
                                     <a href="/speed" className="btn btn-primary">1 Calculators</a>
                                 </div>
                             </div>
                             <div className="card text-center col-4" >
                                 <div className="card-body">
-                                    <h5 className="card-title p-2"><i class="fa-solid fa-atom fa-2xl fa-spin"></i></h5>
+                                    <h5 className="card-title p-2"><i class="fa-solid fa-atom fa-2xl fa-spin" style={{color:"violet"}}></i></h5>
                                     <p className="card-text">Chemistry </p>
                                     <a href="/speed" className="btn btn-primary">0 Calculators</a>
                                 </div>
                             </div>
                             <div className="card text-center col-3" >
                                 <div className="card-body">
-                                    <h5 className="card-title p-2"> <i class="fa-solid fa-calculator fa-2xl"></i> </h5>
+                                    <h5 className="card-title p-2"> <i class="fa-solid fa-calculator fa-2xl" style={{color:"olive"}}></i> </h5>
                                     <p className="card-text">Maths </p>
                                     <a href="/speed" className="btn btn-primary">1 Calculators</a>
                                 </div>
