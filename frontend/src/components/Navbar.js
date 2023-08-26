@@ -12,13 +12,7 @@ export default function Navbar(){
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="/interest"> Calculate Interest </a>
-                            </li>
-                            <li className="nav-item">
-                            <a className="nav-link" href="/profit/loss"> Calculate Profit & Loss</a>
-                            </li>
-                            <li className="nav-item">
-                            <a className="nav-link" href="/deprecation"> Calculate Depreciation</a>
+                            <a className="nav-link" aria-current="page" href="/finance"> Finance </a>
                             </li>
                             <li className="nav-item">
                             <a className="nav-link" href="/bmi"> Calculate BMI</a>
@@ -34,19 +28,19 @@ export default function Navbar(){
                 <h1><a className="nav-link"href="/">FT Calc</a></h1>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Interest" aria-current="page" href="/interest"> Calculate Interest </a>
+                        <a className="nav-link" aria-current="page" href="/finance"> <i class="fa-solid fa-coins"></i> Finance <i class="fa-solid fa-arrow-trend-up"></i> </a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Profit/Loss" aria-current="page" href="/profit/loss"> Calculate Profit & Loss</a>
+                        <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate BMI" aria-current="page" href="/biology"><i class="fa-solid fa-dna"></i> Biology</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Deprecation" aria-current="page" href="/deprecation">Calculate Deprecation</a>
+                        <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Pipe Pressure" aria-current="page" href="/construction"> <i class="fa-solid fa-helmet-safety"></i> Constructions </a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate BMI" aria-current="page" href="/bmi">Calculate BMI</a>
+                        <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Physics Calculator" aria-current="page" href="/physics">  <i class="fa-solid fa-flask"></i> physics </a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculate Pipe Pressure" aria-current="page" href="/pressure">Calculate Pipe Pressure</a>
+                        <a className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Physics Calculator" aria-current="page" href="/physics">  <i class="fa-solid fa-calculator"></i> Maths </a>
                     </li>
                 </ul>
                  {/* <div className="contact-section-body ">
